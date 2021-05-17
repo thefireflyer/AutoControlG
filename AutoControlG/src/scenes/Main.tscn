@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://src/scripts/MusicPlayer.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://src/scripts/Environments.gd" type="Script" id=5]
 [ext_resource path="res://src/theme/main.tres" type="Theme" id=6]
 [ext_resource path="res://src/scripts/Locked.gd" type="Script" id=7]
+[ext_resource path="res://assets/Roboto/Roboto-Light.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://src/scripts/QuickLinks.gd" type="Script" id=9]
+[ext_resource path="res://assets/64284477.png" type="Texture" id=10]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.313726, 0, 0.466667, 1 )
@@ -38,14 +41,50 @@ bg_color = Color( 0.0823529, 0, 0.176471, 0.545098 )
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 0.439216 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=26]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0, 0, 0, 1 )
+[sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0.729412 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 45
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="OpenSimplexNoise" id=12]
+
+[sub_resource type="NoiseTexture" id=13]
+noise = SubResource( 12 )
+
+[sub_resource type="OpenSimplexNoise" id=14]
+
+[sub_resource type="NoiseTexture" id=15]
+noise = SubResource( 14 )
+
+[sub_resource type="OpenSimplexNoise" id=16]
+
+[sub_resource type="NoiseTexture" id=17]
+noise = SubResource( 16 )
+
+[sub_resource type="OpenSimplexNoise" id=18]
+
+[sub_resource type="NoiseTexture" id=19]
+noise = SubResource( 18 )
+
+[sub_resource type="OpenSimplexNoise" id=22]
+
+[sub_resource type="NoiseTexture" id=23]
+noise = SubResource( 22 )
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.0509804, 0.027451, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -100,7 +139,7 @@ __meta__ = {
 anchor_bottom = 1.0
 margin_right = 240.0
 margin_bottom = -38.0
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 26 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -113,8 +152,68 @@ margin_left = 12.0
 margin_right = -12.0
 custom_styles/selected_focus = ExtResource( 3 )
 custom_styles/selected = ExtResource( 3 )
-custom_styles/bg = SubResource( 6 )
+custom_styles/bg = SubResource( 25 )
 items = [ "Programming", null, false, "Art", null, false, "School", null, false, "Clear", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="Panel" parent="tabs/Overview"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 477.0
+margin_top = -84.5
+margin_right = 1.0
+margin_bottom = 171.5
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="tabs/Overview/Stats"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -164.0
+margin_right = -20.0
+custom_fonts/font = SubResource( 8 )
+text = "Stats"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuickLinks" type="Panel" parent="tabs/Overview"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 477.0
+margin_top = 184.5
+margin_right = 1.0
+margin_bottom = 324.5
+custom_styles/panel = SubResource( 5 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="links" type="ItemList" parent="tabs/Overview/QuickLinks"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+custom_styles/selected_focus = ExtResource( 3 )
+custom_styles/selected = ExtResource( 3 )
+custom_styles/bg = SubResource( 9 )
+items = [ "", ExtResource( 10 ), false, "", SubResource( 13 ), false, "", SubResource( 15 ), false, "", SubResource( 17 ), false, "", SubResource( 19 ), false, "", SubResource( 23 ), false ]
+max_columns = 7
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2( 128, 128 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -131,57 +230,6 @@ anchor_right = 1.0
 margin_bottom = 29.0
 custom_fonts/font = ExtResource( 4 )
 text = "Quick Actions"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Projects" type="Panel" parent="tabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 39.0
-custom_styles/panel = SubResource( 4 )
-
-[node name="label" type="Label" parent="tabs/Projects"]
-anchor_right = 1.0
-margin_bottom = 29.0
-custom_fonts/font = ExtResource( 4 )
-text = "Projects"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Calendar" type="Panel" parent="tabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 39.0
-custom_styles/panel = SubResource( 4 )
-
-[node name="label" type="Label" parent="tabs/Calendar"]
-anchor_right = 1.0
-margin_bottom = 29.0
-custom_fonts/font = ExtResource( 4 )
-text = "Calendar"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Automations" type="Panel" parent="tabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 39.0
-custom_styles/panel = SubResource( 4 )
-
-[node name="label" type="Label" parent="tabs/Automations"]
-anchor_right = 1.0
-margin_bottom = 29.0
-custom_fonts/font = ExtResource( 4 )
-text = "Automations"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -226,7 +274,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -38.0
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 24 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -237,6 +285,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 text = "Playing:"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="next" type="Button" parent="MusicPlayer"]
 anchor_left = 1.0
@@ -254,7 +305,11 @@ margin_bottom = 39.0
 text = "AutoControlG"
 align = 2
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="item_selected" from="tabs/Overview/Environments/environments" to="tabs/Overview/Environments" method="_on_environments_item_selected"]
+[connection signal="item_selected" from="tabs/Overview/QuickLinks/links" to="tabs/Overview/QuickLinks" method="_on_links_item_selected"]
 [connection signal="text_entered" from="tabs/Locked/password" to="tabs/Locked" method="_on_password_text_entered"]
 [connection signal="pressed" from="MusicPlayer/next" to="MusicPlayer" method="_on_next_pressed"]
