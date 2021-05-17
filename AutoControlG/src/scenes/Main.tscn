@@ -1,0 +1,260 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://src/scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://src/scripts/MusicPlayer.gd" type="Script" id=2]
+[ext_resource path="res://src/theme/selected.tres" type="StyleBox" id=3]
+[ext_resource path="res://src/theme/large.tres" type="DynamicFont" id=4]
+[ext_resource path="res://src/scripts/Environments.gd" type="Script" id=5]
+[ext_resource path="res://src/theme/main.tres" type="Theme" id=6]
+[ext_resource path="res://src/scripts/Locked.gd" type="Script" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.313726, 0, 0.466667, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0.890196, 1, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0823529, 0, 0.176471, 0.545098 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 0.439216 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0509804, 0.027451, 0.0823529, 1 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
+theme = ExtResource( 6 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="color_rect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -761.0
+color = Color( 0.12549, 0, 0.129412, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tabs" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+custom_styles/tab_fg = SubResource( 1 )
+custom_styles/tab_bg = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
+custom_constants/side_margin = 0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Overview" type="Panel" parent="tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 39.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="label" type="Label" parent="tabs/Overview"]
+anchor_right = 1.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
+text = "Overview"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Environments" type="Panel" parent="tabs/Overview"]
+anchor_bottom = 1.0
+margin_right = 240.0
+margin_bottom = -38.0
+custom_styles/panel = SubResource( 5 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="environments" type="ItemList" parent="tabs/Overview/Environments"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_right = -12.0
+custom_styles/selected_focus = ExtResource( 3 )
+custom_styles/selected = ExtResource( 3 )
+custom_styles/bg = SubResource( 6 )
+items = [ "Programming", null, false, "Art", null, false, "School", null, false, "Clear", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuickActions" type="Panel" parent="tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 39.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="label" type="Label" parent="tabs/QuickActions"]
+anchor_right = 1.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
+text = "Quick Actions"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Projects" type="Panel" parent="tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 39.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="label" type="Label" parent="tabs/Projects"]
+anchor_right = 1.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
+text = "Projects"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Calendar" type="Panel" parent="tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 39.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="label" type="Label" parent="tabs/Calendar"]
+anchor_right = 1.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
+text = "Calendar"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Automations" type="Panel" parent="tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 39.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="label" type="Label" parent="tabs/Automations"]
+anchor_right = 1.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
+text = "Automations"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Locked" type="Panel" parent="tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 39.0
+custom_styles/panel = SubResource( 4 )
+script = ExtResource( 7 )
+
+[node name="label" type="Label" parent="tabs/Locked"]
+anchor_right = 1.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 4 )
+text = "Locked"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password" type="LineEdit" parent="tabs/Locked"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -270.5
+margin_top = -19.5
+margin_right = 270.5
+margin_bottom = 19.5
+custom_styles/normal = SubResource( 7 )
+secret = true
+placeholder_text = "Password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicPlayer" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -38.0
+custom_styles/panel = SubResource( 5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="MusicPlayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Playing:"
+valign = 1
+
+[node name="next" type="Button" parent="MusicPlayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -42.0
+margin_right = -2.0
+text = ">"
+flat = true
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_right = -10.0
+margin_bottom = 39.0
+text = "AutoControlG"
+align = 2
+valign = 1
+
+[connection signal="item_selected" from="tabs/Overview/Environments/environments" to="tabs/Overview/Environments" method="_on_environments_item_selected"]
+[connection signal="text_entered" from="tabs/Locked/password" to="tabs/Locked" method="_on_password_text_entered"]
+[connection signal="pressed" from="MusicPlayer/next" to="MusicPlayer" method="_on_next_pressed"]
