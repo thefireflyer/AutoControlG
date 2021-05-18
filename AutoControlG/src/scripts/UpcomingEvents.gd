@@ -24,9 +24,27 @@ func run():
 		#$link.text += " hours "
 		time_till_next_event += DataLibrary.events[upcoming_events[0]].time["minute"] - current_time["minute"]
 		#$link.text += " minutes"
-		$link.text += str(time_till_next_event) + " minutes"
+		#$link.text += str(time_till_next_event) + " minutes"
 		
 		print(upcoming_events)
+		
+		var days_till_next_event = 0
+		var hours_till_next_event = 0
+		var minutes_till_next_event = 0
+		
+		while time_till_next_event/60 >= 1:
+			hours_till_next_event += 1
+			time_till_next_event -= 60
+		
+		while hours_till_next_event/24 >= 1:
+			days_till_next_event += 1
+			hours_till_next_event -= 24
+		
+		minutes_till_next_event = time_till_next_event
+		
+		print(str(days_till_next_event)+" days " + str(hours_till_next_event)+" hours "+str(minutes_till_next_event)+" minutes")
+		
+		$link.text += str(days_till_next_event)+" days " + str(hours_till_next_event)+" hours "+str(minutes_till_next_event)+" minutes"
 		
 		if time_till_next_event < 5:
 			_on_link_pressed()

@@ -30,4 +30,5 @@ func maximize():
 
 func _notification(what):
 	if what == NOTIFICATION_WM_QUIT_REQUEST:
-		$tabs/Overview/Environments.current_environment.close()
+		if $tabs/Overview/Environments.current_environment != null:
+			$tabs/Overview/Environments.current_environment.close()
