@@ -9,6 +9,7 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
+		_notification(NOTIFICATION_WM_QUIT_REQUEST)
 		get_tree().quit()
 	if Input.is_action_just_pressed("ui_focus_next"):
 		OS.window_minimized = true
