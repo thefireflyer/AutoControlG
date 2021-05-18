@@ -25,3 +25,8 @@ func maximize():
 	else:
 		OS.window_borderless = false
 		OS.window_maximized = true
+
+
+func _notification(what):
+	if what == NOTIFICATION_WM_QUIT_REQUEST:
+		$tabs/Overview/Environments.current_environment.close()

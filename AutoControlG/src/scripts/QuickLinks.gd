@@ -6,7 +6,7 @@ var links = {
 	 "https://flyingfire.theflyingfire.repl.co/",
 	 "https://thefireflyer.wixsite.com/flyingfire"],
 	
-	"res://assets/Screenshot (78).png" : ["https://itch.io/dashboard"]
+	"" : ["https://itch.io/dashboard"]
 	
 }
 

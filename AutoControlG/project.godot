@@ -15,6 +15,12 @@ run/main_scene="res://src/scenes/Main.tscn"
 config/icon="res://assets/logo.png"
 config/windows_native_icon="res://assets/logo.ico"
 
+[autoload]
+
+ClassLibrary="*res://src/scripts/ClassLibrary.gd"
+FunctionLibrary="*res://src/scripts/FunctionLibrary.gd"
+DataLibrary="*res://src/scripts/DataLibrary.gd"
+
 [display]
 
 window/size/width=1290

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://src/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://src/scripts/MusicPlayer.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/Roboto/Roboto-Light.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://src/scripts/QuickLinks.gd" type="Script" id=9]
 [ext_resource path="res://assets/64284477.png" type="Texture" id=10]
+[ext_resource path="res://src/scripts/UpcomingEvents.gd" type="Script" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.313726, 0, 0.466667, 1 )
@@ -41,12 +42,12 @@ bg_color = Color( 0.0823529, 0, 0.176471, 0.545098 )
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 0.439216 )
 
-[sub_resource type="StyleBoxFlat" id=26]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxEmpty" id=25]
+[sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0, 0, 0, 0.729412 )
 
 [sub_resource type="DynamicFont" id=8]
@@ -54,6 +55,11 @@ size = 45
 font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="OpenSimplexNoise" id=10]
+
+[sub_resource type="NoiseTexture" id=11]
+noise = SubResource( 10 )
 
 [sub_resource type="OpenSimplexNoise" id=12]
 
@@ -75,15 +81,10 @@ noise = SubResource( 16 )
 [sub_resource type="NoiseTexture" id=19]
 noise = SubResource( 18 )
 
-[sub_resource type="OpenSimplexNoise" id=22]
-
-[sub_resource type="NoiseTexture" id=23]
-noise = SubResource( 22 )
-
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=20]
 bg_color = Color( 0.0509804, 0.027451, 0.0823529, 1 )
 
-[sub_resource type="StyleBoxFlat" id=24]
+[sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Main" type="Control"]
@@ -139,7 +140,7 @@ __meta__ = {
 anchor_bottom = 1.0
 margin_right = 240.0
 margin_bottom = -38.0
-custom_styles/panel = SubResource( 26 )
+custom_styles/panel = SubResource( 5 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,7 +153,7 @@ margin_left = 12.0
 margin_right = -12.0
 custom_styles/selected_focus = ExtResource( 3 )
 custom_styles/selected = ExtResource( 3 )
-custom_styles/bg = SubResource( 25 )
+custom_styles/bg = SubResource( 6 )
 items = [ "Programming", null, false, "Art", null, false, "School", null, false, "Clear", null, false ]
 __meta__ = {
 "_edit_use_anchors_": false
@@ -166,7 +167,7 @@ margin_left = 477.0
 margin_top = -84.5
 margin_right = 1.0
 margin_bottom = 171.5
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -185,6 +186,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UpcomingEvents" type="Panel" parent="tabs/Overview"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 477.0
+margin_top = -130.5
+margin_right = 1.0
+margin_bottom = -97.5
+custom_styles/panel = SubResource( 7 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="link" type="LinkButton" parent="tabs/Overview/UpcomingEvents"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+text = "Upcoming Event"
+
 [node name="QuickLinks" type="Panel" parent="tabs/Overview"]
 anchor_top = 0.5
 anchor_right = 1.0
@@ -193,7 +217,7 @@ margin_left = 477.0
 margin_top = 184.5
 margin_right = 1.0
 margin_bottom = 324.5
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 7 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -209,7 +233,7 @@ margin_bottom = -5.0
 custom_styles/selected_focus = ExtResource( 3 )
 custom_styles/selected = ExtResource( 3 )
 custom_styles/bg = SubResource( 9 )
-items = [ "", ExtResource( 10 ), false, "", SubResource( 13 ), false, "", SubResource( 15 ), false, "", SubResource( 17 ), false, "", SubResource( 19 ), false, "", SubResource( 23 ), false ]
+items = [ "", ExtResource( 10 ), false, "", SubResource( 11 ), false, "", SubResource( 13 ), false, "", SubResource( 15 ), false, "", SubResource( 17 ), false, "", SubResource( 19 ), false ]
 max_columns = 7
 same_column_width = true
 icon_mode = 0
@@ -262,7 +286,7 @@ margin_left = -270.5
 margin_top = -19.5
 margin_right = 270.5
 margin_bottom = 19.5
-custom_styles/normal = SubResource( 7 )
+custom_styles/normal = SubResource( 20 )
 secret = true
 placeholder_text = "Password"
 __meta__ = {
@@ -274,7 +298,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -38.0
-custom_styles/panel = SubResource( 24 )
+custom_styles/panel = SubResource( 21 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -310,6 +334,7 @@ __meta__ = {
 }
 
 [connection signal="item_selected" from="tabs/Overview/Environments/environments" to="tabs/Overview/Environments" method="_on_environments_item_selected"]
+[connection signal="pressed" from="tabs/Overview/UpcomingEvents/link" to="tabs/Overview/UpcomingEvents" method="_on_link_pressed"]
 [connection signal="item_selected" from="tabs/Overview/QuickLinks/links" to="tabs/Overview/QuickLinks" method="_on_links_item_selected"]
 [connection signal="text_entered" from="tabs/Locked/password" to="tabs/Locked" method="_on_password_text_entered"]
 [connection signal="pressed" from="MusicPlayer/next" to="MusicPlayer" method="_on_next_pressed"]
