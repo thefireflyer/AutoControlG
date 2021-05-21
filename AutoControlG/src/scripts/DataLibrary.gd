@@ -10,10 +10,6 @@ var events = {
 	 "https://us02web.zoom.us/j/81405214428?pwd=Q1V0SkgvUVMyM2tvQ0pMWDhZZmI0QT09#success",
 	 {"weekday":1,"hour":11,"minute":30}),
 	
-	"Chemistry?" : ClassLibrary.EventNotification.new("Chemistry?",
-	"",
-	{"weekday":4,"hour":14,"minute":15}),
-	
 	"Career Class" : ClassLibrary.EventNotification.new("Career Class",
 	"https://us02web.zoom.us/j/89262347911",
 	{"weekday":1,"hour":14,"minute":15}),

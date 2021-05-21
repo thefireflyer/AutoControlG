@@ -8,7 +8,7 @@ func setup_env(current_environment):
 
 func setup_programming_env(current_environment):
 	print("setting up programming environment")
-	current_environment.launch(["C:/Users/Aidan/Downloads/Godot_v3.3-stable_win64.exe/Godot_v3.3-stable_win64.exe"])
+	#current_environment.launch(["C:/Users/Aidan/Downloads/Godot_v3.3-stable_win64.exe/Godot_v3.3-stable_win64.exe"])
 
 func setup_art2D_env(current_environment):
 	print("setting up 2d art environment")

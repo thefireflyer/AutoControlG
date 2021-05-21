@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/Roboto/Roboto-Light.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://src/scripts/QuickLinks.gd" type="Script" id=9]
 [ext_resource path="res://assets/64284477.png" type="Texture" id=10]
-[ext_resource path="res://src/scripts/UpcomingEvents.gd" type="Script" id=11]
+[ext_resource path="res://src/scenes/UpcomingEvents.tscn" type="PackedScene" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.313726, 0, 0.466667, 1 )
@@ -159,6 +159,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UpcomingEvents" parent="tabs/Overview" instance=ExtResource( 11 )]
+
 [node name="Stats" type="Panel" parent="tabs/Overview"]
 anchor_top = 0.5
 anchor_right = 1.0
@@ -185,29 +187,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="UpcomingEvents" type="Panel" parent="tabs/Overview"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 477.0
-margin_top = -130.5
-margin_right = 1.0
-margin_bottom = -97.5
-custom_styles/panel = SubResource( 7 )
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="link" type="LinkButton" parent="tabs/Overview/UpcomingEvents"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 5.0
-margin_right = -5.0
-margin_bottom = -5.0
-text = "Upcoming Event"
 
 [node name="QuickLinks" type="Panel" parent="tabs/Overview"]
 anchor_top = 0.5
@@ -334,7 +313,6 @@ __meta__ = {
 }
 
 [connection signal="item_selected" from="tabs/Overview/Environments/environments" to="tabs/Overview/Environments" method="_on_environments_item_selected"]
-[connection signal="pressed" from="tabs/Overview/UpcomingEvents/link" to="tabs/Overview/UpcomingEvents" method="_on_link_pressed"]
 [connection signal="item_selected" from="tabs/Overview/QuickLinks/links" to="tabs/Overview/QuickLinks" method="_on_links_item_selected"]
 [connection signal="text_entered" from="tabs/Locked/password" to="tabs/Locked" method="_on_password_text_entered"]
 [connection signal="pressed" from="MusicPlayer/next" to="MusicPlayer" method="_on_next_pressed"]
