@@ -2,6 +2,9 @@ extends Control
 
 
 func _ready():
+	
+	print(OS.get_datetime())
+	
 	#OS.window_borderless = true
 	#OS.set_window_always_on_top(true)
 	
