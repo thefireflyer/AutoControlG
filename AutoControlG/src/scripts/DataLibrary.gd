@@ -80,10 +80,11 @@ var locked = {
 	},
 	
 	"links" : {
-		"random song" : "https://www.youtube.com/watch?v=jYsSd65Y-Z8"
+		"" : ["https://www.youtube.com/watch?v=jYsSd65Y-Z8"]
 	}
 	
 }
+
 
 func load_config():
 	
@@ -95,7 +96,14 @@ func load_config():
 	config_file.open("user://config", File.READ)
 	
 	var data = JSON.parse(config_file.get_as_text()).result
-	print(data)
+	#print(data)
+	
+	events = data["events"]
+	environments = data["environments"]
+	links = data["links"]
+	good_music_urls = data["music"]
+	
+	password = data["password"]
 	
 	config_file.close()
 	return true
@@ -110,6 +118,7 @@ func save_config():
 	data["environments"] = environments
 	data["links"] = links
 	data["music"] = good_music_urls
+	data["password"] = password
 	
 	config_file.store_line(to_json(data))
 	

@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready():
-	DataLibrary.save_config()
+	#DataLibrary.save_config()
 	DataLibrary.load_config()
 	
 	

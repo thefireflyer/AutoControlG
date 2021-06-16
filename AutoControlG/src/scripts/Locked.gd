@@ -1,6 +1,6 @@
 extends Panel
 
-
+var locked = true
 
 func _on_password_text_entered(new_text):
 	if new_text == DataLibrary.password:
@@ -13,10 +13,15 @@ func _on_password_text_entered(new_text):
 		
 		get_parent().get_node("Overview/Environments")._ready()
 		get_parent().current_tab = 0
+		locked = false
 		#OS.execute("", [], false)
 		#get_tree().quit()
 
 func lock():
+	if locked:
+		return
+	
+	get_parent().get_node("Overview/Environments")._on_environments_item_selected(DataLibrary.environments.size())
 	
 	for new_environment in DataLibrary.locked["environments"].keys():
 		
@@ -27,7 +32,6 @@ func lock():
 		DataLibrary.links.erase(new_link)
 	
 	get_parent().get_node("Overview/Environments")._ready()
-	get_parent().get_node("Overview/Environments").current_environment.close()
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_focus_next"):
