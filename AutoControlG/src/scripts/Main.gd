@@ -2,6 +2,9 @@ extends Control
 
 
 func _ready():
+	DataLibrary.save_config()
+	DataLibrary.load_config()
+	
 	
 	print(OS.get_datetime())
 	
@@ -16,8 +19,6 @@ func _process(delta):
 		get_tree().quit()
 	if Input.is_action_just_pressed("ui_focus_next"):
 		OS.window_minimized = true
-
-
 
 
 #TESTING

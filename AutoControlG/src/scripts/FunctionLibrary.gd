@@ -1,11 +1,27 @@
 extends Node
 
 #==================Environments==============================
-func setup_env(current_environment):
+func setup_env(current_environment, new_environment_data):
 	if current_environment != null:
 		current_environment.close()
-	return ClassLibrary.AppEnvironment.new()
+	
+	var new_environment = ClassLibrary.AppEnvironment.new()
+	
+	if new_environment_data.has("apps"):
+		new_environment.launch(new_environment_data["apps"])
+	
+	if new_environment_data.has("links"):
+		for link in new_environment_data["links"]:
+			OS.shell_open(link)
+	
+	if new_environment_data.has("music"):
+		#TODO: implement environment specific music
+		pass
+	
+	return new_environment
 
+
+#-----------old version---------------------------
 func setup_programming_env(current_environment):
 	print("setting up programming environment")
 	current_environment.launch(["C:/Users/Aidan/Downloads/Godot_v3.3-stable_win64.exe/Godot_v3.3-stable_win64.exe"])

@@ -22,7 +22,7 @@ func run():
 		
 		$link.text = upcoming_events[0] + "       in "
 		var current_time = OS.get_datetime()
-		var time_till_next_event = get_minutes_till(DataLibrary.events[upcoming_events[0]].time)
+		var time_till_next_event = get_minutes_till(DataLibrary.events[upcoming_events[0]]["time"])
 		
 		if time_till_next_event < 0:
 			#upcoming_events.append(upcoming_events[0])
@@ -76,8 +76,8 @@ func get_minutes_till(event_time):
 
 func sort_events(a, b):
 	
-	var a_time = DataLibrary.events[a].time
-	var b_time = DataLibrary.events[b].time
+	var a_time = DataLibrary.events[a]["time"]
+	var b_time = DataLibrary.events[b]["time"]
 	
 	var minutes_till_a = get_minutes_till(a_time)
 	var minutes_till_b = get_minutes_till(b_time)
@@ -91,4 +91,6 @@ func sort_events(a, b):
 func _on_link_pressed():
 	if upcoming_events.size() < 1:
 		return
-	OS.shell_open(DataLibrary.events[upcoming_events[0]].link)
+	for link in DataLibrary.events[upcoming_events[0]]["links"]:
+		OS.shell_open(link)
+	#OS.shell_open(DataLibrary.events[upcoming_events[0]].link)
