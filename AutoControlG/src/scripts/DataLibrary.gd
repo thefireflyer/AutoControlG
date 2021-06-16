@@ -5,23 +5,12 @@ var events = {
 	"Testing" : ClassLibrary.EventNotification.new("Testing",
 	"https://thefireflyer.herokuapp.com/signup/TESTING%20events%20triggered!%20AutoControlG",
 	#"https://thefireflyer.herokuapp.com/",
-	{"weekday":0,"hour":23,"minute":45}),
+	{"weekday":1,"hour":23,"minute":45}),
 	
-	"English Class" : ClassLibrary.EventNotification.new("English Class",
-	 "https://us02web.zoom.us/j/81405214428?pwd=Q1V0SkgvUVMyM2tvQ0pMWDhZZmI0QT09#success",
-	 {"weekday":1,"hour":11,"minute":30}),
-	
-	"Career Class" : ClassLibrary.EventNotification.new("Career Class",
-	"https://us02web.zoom.us/j/89262347911",
-	{"weekday":1,"hour":14,"minute":15}),
-	
-	"Chemistry Class" : ClassLibrary.EventNotification.new("Chemistry Class",
-	"https://thefireflyer.herokuapp.com/signup/CHEMISTRY CLASS!%20AutoControlG",
-	{"weekday":5,"hour":14,"minute":0}),
-	
-	"Math Class" : ClassLibrary.EventNotification.new("Math Class",
-	"https://www.google.com/url?sa=D&q=https://us02web.zoom.us/j/91197322132%3Fpwd%3DdHc5T1I5eVhNUm9rbC9DeFZCL3VEZz09&ust=1621379400000000&usg=AOvVaw06by76WbDBfXnl9KEjwiWF&hl=en&source=gmail",
-	{"weekday":2,"hour":10,"minute":30})
+	"Testing 2" : ClassLibrary.EventNotification.new("Testing 2",
+	"https://thefireflyer.herokuapp.com/signup/tests2%20events%20triggered!%20AutoControlG",
+	#"https://thefireflyer.herokuapp.com/",
+	{"hour":23,"minute":30, "day": 15}),
 	
 }
 
@@ -47,6 +36,9 @@ var links = {
 }
 
 var good_music_urls = {
+	
+	
+	
 	
 	"Civilization 6 music" : "https://www.youtube.com/watch?v=Z4ciJy3u7BY&list=PL9Xws8aTzwJDjicUyRgvNJhgIQrLvNQjv&index=1",
 	"ABZU music" : "https://www.youtube.com/watch?v=ElzV4PnXM5o",
