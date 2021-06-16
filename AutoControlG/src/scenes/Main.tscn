@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://src/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://src/scripts/MusicPlayer.gd" type="Script" id=2]
@@ -83,7 +83,12 @@ noise = SubResource( 18 )
 
 [sub_resource type="StyleBoxEmpty" id=22]
 
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.0509804, 0.027451, 0.0823529, 1 )
+
 [sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=24]
 
 [sub_resource type="StyleBoxEmpty" id=25]
 
@@ -93,33 +98,16 @@ noise = SubResource( 18 )
 
 [sub_resource type="StyleBoxEmpty" id=28]
 
-[sub_resource type="StyleBoxEmpty" id=38]
-
 [sub_resource type="StyleBoxEmpty" id=29]
 
 [sub_resource type="StyleBoxEmpty" id=30]
 
-[sub_resource type="StyleBoxEmpty" id=31]
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=32]
 
-[sub_resource type="StyleBoxEmpty" id=39]
-
 [sub_resource type="StyleBoxEmpty" id=33]
-
-[sub_resource type="StyleBoxEmpty" id=34]
-
-[sub_resource type="StyleBoxEmpty" id=35]
-
-[sub_resource type="StyleBoxEmpty" id=36]
-
-[sub_resource type="StyleBoxEmpty" id=37]
-
-[sub_resource type="StyleBoxFlat" id=40]
-bg_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="StyleBoxFlat" id=20]
-bg_color = Color( 0.0509804, 0.027451, 0.0823529, 1 )
 
 [sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0, 0, 0, 1 )
@@ -158,6 +146,7 @@ __meta__ = {
 }
 
 [node name="Overview" type="Panel" parent="tabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 39.0
@@ -280,114 +269,11 @@ __meta__ = {
 }
 
 [node name="Locked" type="Panel" parent="tabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 39.0
 custom_styles/panel = SubResource( 4 )
 script = ExtResource( 7 )
-
-[node name="Settings" type="Panel" parent="tabs/Locked"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -38.0
-custom_styles/panel = SubResource( 22 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="label2" type="Label" parent="tabs/Locked/Settings"]
-anchor_right = 1.0
-margin_bottom = 85.0
-custom_fonts/font = ExtResource( 4 )
-text = "Settings"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="settings" type="Panel" parent="tabs/Locked/Settings"]
-margin_left = 12.0
-margin_top = 101.0
-margin_right = 1274.0
-margin_bottom = 723.0
-custom_styles/panel = SubResource( 23 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="environments2" type="ItemList" parent="tabs/Locked/Settings/settings"]
-anchor_bottom = 1.0
-margin_right = 228.0
-custom_styles/cursor = SubResource( 25 )
-custom_styles/selected_focus = SubResource( 26 )
-custom_styles/bg_focus = SubResource( 27 )
-custom_styles/cursor_unfocused = SubResource( 28 )
-custom_styles/selected = SubResource( 38 )
-custom_styles/bg = SubResource( 6 )
-items = [ "Programming", null, false, "Art", null, false, "School", null, false, "Clear", null, false ]
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Songs" type="ItemList" parent="tabs/Locked/Settings/settings"]
-anchor_bottom = 1.0
-margin_left = 465.0
-margin_right = 693.0
-custom_styles/cursor = SubResource( 25 )
-custom_styles/selected_focus = SubResource( 26 )
-custom_styles/bg_focus = SubResource( 27 )
-custom_styles/cursor_unfocused = SubResource( 28 )
-custom_styles/selected = SubResource( 38 )
-custom_styles/bg = SubResource( 6 )
-items = [ "ExampleSong", null, false, "ExampleSong", null, false, "ExampleSong", null, false, "ExampleSong", null, false ]
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="events" type="ItemList" parent="tabs/Locked/Settings/settings"]
-anchor_bottom = 1.0
-margin_left = 228.0
-margin_top = 276.0
-margin_right = 456.0
-custom_styles/cursor = SubResource( 29 )
-custom_styles/selected_focus = SubResource( 30 )
-custom_styles/bg_focus = SubResource( 31 )
-custom_styles/cursor_unfocused = SubResource( 32 )
-custom_styles/selected = SubResource( 39 )
-custom_styles/bg = SubResource( 6 )
-items = [ "Testing1Event", null, false, "Testing2Event", null, false ]
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="links" type="ItemList" parent="tabs/Locked/Settings/settings"]
-anchor_bottom = 1.0
-margin_left = 228.0
-margin_right = 456.0
-margin_bottom = -361.0
-custom_styles/cursor = SubResource( 33 )
-custom_styles/selected_focus = SubResource( 34 )
-custom_styles/bg_focus = SubResource( 35 )
-custom_styles/cursor_unfocused = SubResource( 36 )
-custom_styles/selected = SubResource( 37 )
-custom_styles/bg = SubResource( 6 )
-items = [ "Testing1Link", null, false, "Testing2Link", null, false ]
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="properties" type="Panel" parent="tabs/Locked/Settings/settings"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -581.0
-margin_right = 1.0
-margin_bottom = -18.0
-custom_styles/panel = SubResource( 40 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LockScreen" type="Panel" parent="tabs/Locked"]
 visible = false
@@ -421,6 +307,126 @@ margin_bottom = 38.5
 custom_styles/normal = SubResource( 20 )
 secret = true
 placeholder_text = "Password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Panel" parent="tabs/Locked"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -38.0
+custom_styles/panel = SubResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label2" type="Label" parent="tabs/Locked/Settings"]
+anchor_right = 1.0
+margin_bottom = 85.0
+custom_fonts/font = ExtResource( 4 )
+text = "Settings"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings" type="Panel" parent="tabs/Locked/Settings"]
+margin_left = 12.0
+margin_top = 101.0
+margin_right = 1274.0
+margin_bottom = 723.0
+custom_styles/panel = SubResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="group" type="ItemList" parent="tabs/Locked/Settings/settings"]
+anchor_bottom = 1.0
+margin_right = 228.0
+custom_styles/cursor = SubResource( 25 )
+custom_styles/selected_focus = SubResource( 26 )
+custom_styles/bg_focus = SubResource( 27 )
+custom_styles/cursor_unfocused = SubResource( 28 )
+custom_styles/selected = SubResource( 29 )
+custom_styles/bg = SubResource( 30 )
+items = [ "General", null, false, "Environments", null, false, "Links", null, false, "Music", null, false, "Events", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="items" type="ItemList" parent="tabs/Locked/Settings/settings"]
+anchor_bottom = 1.0
+margin_left = 228.0
+margin_right = 456.0
+custom_styles/cursor = SubResource( 25 )
+custom_styles/selected_focus = SubResource( 26 )
+custom_styles/bg_focus = SubResource( 27 )
+custom_styles/cursor_unfocused = SubResource( 28 )
+custom_styles/selected = SubResource( 29 )
+custom_styles/bg = SubResource( 30 )
+items = [ "ExampleItem", null, false, "ExampleItem", null, false, "ExampleItem", null, false, "ExampleItem", null, false, "Create New", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="properties" type="Panel" parent="tabs/Locked/Settings/settings"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -818.0
+margin_right = 1.0
+margin_bottom = -18.0
+custom_styles/panel = SubResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item_name" type="Label" parent="tabs/Locked/Settings/settings/properties"]
+anchor_right = 1.0
+margin_left = 12.0
+margin_bottom = 29.0
+text = "Example item name"
+
+[node name="item_value" type="LineEdit" parent="tabs/Locked/Settings/settings/properties"]
+margin_left = 12.0
+margin_top = 29.0
+margin_right = 818.0
+margin_bottom = 68.0
+custom_styles/focus = SubResource( 32 )
+custom_styles/normal = SubResource( 33 )
+placeholder_text = "Value"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="save_button" type="Button" parent="tabs/Locked/Settings/settings/properties"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -798.0
+margin_top = -54.2238
+margin_right = -735.0
+margin_bottom = -19.2238
+custom_colors/font_color = Color( 0.054902, 1, 0, 1 )
+text = "Save"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="delete_button" type="Button" parent="tabs/Locked/Settings/settings/properties"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -98.755
+margin_top = -54.2238
+margin_right = -19.755
+margin_bottom = -19.2238
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Delete"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

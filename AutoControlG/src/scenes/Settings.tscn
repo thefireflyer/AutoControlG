@@ -1,0 +1,146 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/theme/large.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[node name="Settings" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -38.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label2" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 85.0
+custom_fonts/font = ExtResource( 1 )
+text = "Settings"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings" type="Panel" parent="."]
+margin_left = 12.0
+margin_top = 101.0
+margin_right = 1274.0
+margin_bottom = 723.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="group" type="ItemList" parent="settings"]
+anchor_bottom = 1.0
+margin_right = 228.0
+custom_styles/cursor = SubResource( 3 )
+custom_styles/selected_focus = SubResource( 4 )
+custom_styles/bg_focus = SubResource( 5 )
+custom_styles/cursor_unfocused = SubResource( 6 )
+custom_styles/selected = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
+items = [ "General", null, false, "Environments", null, false, "Links", null, false, "Music", null, false, "Events", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="items" type="ItemList" parent="settings"]
+anchor_bottom = 1.0
+margin_left = 228.0
+margin_right = 456.0
+custom_styles/cursor = SubResource( 3 )
+custom_styles/selected_focus = SubResource( 4 )
+custom_styles/bg_focus = SubResource( 5 )
+custom_styles/cursor_unfocused = SubResource( 6 )
+custom_styles/selected = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
+items = [ "ExampleItem", null, false, "ExampleItem", null, false, "ExampleItem", null, false, "ExampleItem", null, false, "Create New", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="properties" type="Panel" parent="settings"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -818.0
+margin_right = 1.0
+margin_bottom = -18.0
+custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item_name" type="Label" parent="settings/properties"]
+anchor_right = 1.0
+margin_left = 12.0
+margin_bottom = 29.0
+text = "Example item name"
+
+[node name="item_value" type="LineEdit" parent="settings/properties"]
+margin_left = 12.0
+margin_top = 29.0
+margin_right = 818.0
+margin_bottom = 68.0
+custom_styles/focus = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+placeholder_text = "Value"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="save_button" type="Button" parent="settings/properties"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -798.0
+margin_top = -54.2238
+margin_right = -735.0
+margin_bottom = -19.2238
+custom_colors/font_color = Color( 0.054902, 1, 0, 1 )
+text = "Save"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="delete_button" type="Button" parent="settings/properties"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -98.755
+margin_top = -54.2238
+margin_right = -19.755
+margin_bottom = -19.2238
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Delete"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
