@@ -12,7 +12,7 @@ var local_environments = {}
 #=====================Main functionality=====================
 func _ready():
 	
-	local_environments = DataLibrary.environments.duplicate()
+	local_environments = DataLibrary.data["Environments"].duplicate()
 	local_environments["None"] = {}
 	configure_options()
 

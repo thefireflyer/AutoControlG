@@ -15,6 +15,6 @@ func _on_next_pressed():
 	var rand = RandomNumberGenerator.new()
 	rand.randomize()
 	#print(rand.randi_range(0,DataLibrary.good_music_urls.size()))
-	currently_playing = DataLibrary.good_music_urls.keys()[rand.randi_range(0,DataLibrary.good_music_urls.size())]
-	OS.shell_open(DataLibrary.good_music_urls[currently_playing])
+	currently_playing = DataLibrary.data["Music"].keys()[rand.randi_range(0,DataLibrary.data["Music"].size())]
+	OS.shell_open(DataLibrary.data["Music"][currently_playing])
 	$label.text = "Currently playing: " + currently_playing

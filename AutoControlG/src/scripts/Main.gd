@@ -2,15 +2,13 @@ extends Control
 
 
 func _ready():
+	#maximize()
 	#DataLibrary.save_config()
-	DataLibrary.load_config()
-	
+	if not DataLibrary.load_config():
+		DataLibrary.save_config()
 	
 	print(OS.get_datetime())
-	
-	#OS.window_borderless = true
-	#OS.set_window_always_on_top(true)
-	
+		
 	get_tree().get_root().set_transparent_background(true)
 
 func _process(delta):
@@ -25,6 +23,13 @@ func _process(delta):
 const FULLSCREEN_MODE = true
 
 func maximize():
+	
+	OS.window_position = Vector2(0,0)
+	OS.window_size = OS.get_screen_size() - Vector2(0,1)
+	OS.set_window_always_on_top(true)
+	
+	#old version
+	return
 	if FULLSCREEN_MODE:
 		OS.window_fullscreen = true
 	else:

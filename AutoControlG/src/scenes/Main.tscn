@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://src/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://src/scripts/MusicPlayer.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/scripts/QuickLinks.gd" type="Script" id=9]
 [ext_resource path="res://assets/64284477.png" type="Texture" id=10]
 [ext_resource path="res://src/scenes/UpcomingEvents.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/scripts/Settings.gd" type="Script" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.313726, 0, 0.466667, 1 )
@@ -81,10 +82,12 @@ noise = SubResource( 16 )
 [sub_resource type="NoiseTexture" id=19]
 noise = SubResource( 18 )
 
-[sub_resource type="StyleBoxEmpty" id=22]
+[sub_resource type="StyleBoxEmpty" id=20]
 
-[sub_resource type="StyleBoxFlat" id=20]
+[sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.0509804, 0.027451, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=22]
 
 [sub_resource type="StyleBoxEmpty" id=23]
 
@@ -100,16 +103,16 @@ bg_color = Color( 0.0509804, 0.027451, 0.0823529, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=29]
 
-[sub_resource type="StyleBoxEmpty" id=30]
-
-[sub_resource type="StyleBoxFlat" id=31]
+[sub_resource type="StyleBoxFlat" id=30]
 bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=31]
 
 [sub_resource type="StyleBoxEmpty" id=32]
 
-[sub_resource type="StyleBoxEmpty" id=33]
+[sub_resource type="StyleBoxEmpty" id=34]
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=33]
 bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Main" type="Control"]
@@ -280,7 +283,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -38.0
-custom_styles/panel = SubResource( 22 )
+custom_styles/panel = SubResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -304,7 +307,7 @@ margin_left = -270.5
 margin_top = -0.5
 margin_right = 270.5
 margin_bottom = 38.5
-custom_styles/normal = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
 secret = true
 placeholder_text = "Password"
 __meta__ = {
@@ -315,7 +318,8 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -38.0
-custom_styles/panel = SubResource( 23 )
+custom_styles/panel = SubResource( 22 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -335,7 +339,7 @@ margin_left = 12.0
 margin_top = 101.0
 margin_right = 1274.0
 margin_bottom = 723.0
-custom_styles/panel = SubResource( 24 )
+custom_styles/panel = SubResource( 23 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -343,12 +347,12 @@ __meta__ = {
 [node name="group" type="ItemList" parent="tabs/Locked/Settings/settings"]
 anchor_bottom = 1.0
 margin_right = 228.0
-custom_styles/cursor = SubResource( 25 )
-custom_styles/selected_focus = SubResource( 26 )
-custom_styles/bg_focus = SubResource( 27 )
-custom_styles/cursor_unfocused = SubResource( 28 )
-custom_styles/selected = SubResource( 29 )
-custom_styles/bg = SubResource( 30 )
+custom_styles/cursor = SubResource( 24 )
+custom_styles/selected_focus = SubResource( 25 )
+custom_styles/bg_focus = SubResource( 26 )
+custom_styles/cursor_unfocused = SubResource( 27 )
+custom_styles/selected = SubResource( 28 )
+custom_styles/bg = SubResource( 29 )
 items = [ "General", null, false, "Environments", null, false, "Links", null, false, "Music", null, false, "Events", null, false ]
 __meta__ = {
 "_edit_use_anchors_": false
@@ -358,12 +362,12 @@ __meta__ = {
 anchor_bottom = 1.0
 margin_left = 228.0
 margin_right = 456.0
-custom_styles/cursor = SubResource( 25 )
-custom_styles/selected_focus = SubResource( 26 )
-custom_styles/bg_focus = SubResource( 27 )
-custom_styles/cursor_unfocused = SubResource( 28 )
-custom_styles/selected = SubResource( 29 )
-custom_styles/bg = SubResource( 30 )
+custom_styles/cursor = SubResource( 24 )
+custom_styles/selected_focus = SubResource( 25 )
+custom_styles/bg_focus = SubResource( 26 )
+custom_styles/cursor_unfocused = SubResource( 27 )
+custom_styles/selected = SubResource( 28 )
+custom_styles/bg = SubResource( 29 )
 items = [ "ExampleItem", null, false, "ExampleItem", null, false, "ExampleItem", null, false, "ExampleItem", null, false, "Create New", null, false ]
 __meta__ = {
 "_edit_use_anchors_": false
@@ -376,7 +380,7 @@ anchor_bottom = 1.0
 margin_left = -818.0
 margin_right = 1.0
 margin_bottom = -18.0
-custom_styles/panel = SubResource( 31 )
+custom_styles/panel = SubResource( 30 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -387,17 +391,29 @@ margin_left = 12.0
 margin_bottom = 29.0
 text = "Example item name"
 
-[node name="item_value" type="LineEdit" parent="tabs/Locked/Settings/settings/properties"]
+[node name="item_value_text" type="LineEdit" parent="tabs/Locked/Settings/settings/properties"]
+visible = false
 margin_left = 12.0
 margin_top = 29.0
 margin_right = 818.0
 margin_bottom = 68.0
-custom_styles/focus = SubResource( 32 )
-custom_styles/normal = SubResource( 33 )
+custom_styles/focus = SubResource( 31 )
+custom_styles/normal = SubResource( 32 )
 placeholder_text = "Value"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="item_value_bool" type="CheckBox" parent="tabs/Locked/Settings/settings/properties"]
+visible = false
+margin_left = 12.0
+margin_top = 29.0
+margin_right = 818.0
+margin_bottom = 68.0
+custom_styles/focus = SubResource( 31 )
+custom_styles/normal = SubResource( 32 )
+text = "Value"
+flat = true
 
 [node name="save_button" type="Button" parent="tabs/Locked/Settings/settings/properties"]
 anchor_left = 1.0
@@ -431,12 +447,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="items" type="ItemList" parent="tabs/Locked/Settings/settings/properties"]
+anchor_bottom = 1.0
+margin_left = 581.0
+margin_right = 809.0
+margin_bottom = -54.0
+custom_styles/cursor = SubResource( 24 )
+custom_styles/selected_focus = SubResource( 25 )
+custom_styles/bg_focus = SubResource( 26 )
+custom_styles/cursor_unfocused = SubResource( 27 )
+custom_styles/selected = SubResource( 28 )
+custom_styles/bg = SubResource( 29 )
+items = [ "ExampleItem", null, false, "ExampleItem", null, false, "ExampleItem", null, false, "ExampleItem", null, false, "Create New", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item_properties" type="Panel" parent="tabs/Locked/Settings/settings/properties"]
+margin_left = 12.0
+margin_top = 221.0
+margin_right = 581.0
+margin_bottom = 550.0
+custom_styles/panel = SubResource( 34 )
+
 [node name="MusicPlayer" type="Panel" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -38.0
-custom_styles/panel = SubResource( 21 )
+custom_styles/panel = SubResource( 33 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -474,4 +513,9 @@ __meta__ = {
 [connection signal="item_selected" from="tabs/Overview/Environments/environments" to="tabs/Overview/Environments" method="_on_environments_item_selected"]
 [connection signal="item_selected" from="tabs/Overview/QuickLinks/links" to="tabs/Overview/QuickLinks" method="_on_links_item_selected"]
 [connection signal="text_entered" from="tabs/Locked/LockScreen/password" to="tabs/Locked" method="_on_password_text_entered"]
+[connection signal="item_selected" from="tabs/Locked/Settings/settings/group" to="tabs/Locked/Settings" method="_on_group_item_selected"]
+[connection signal="item_selected" from="tabs/Locked/Settings/settings/items" to="tabs/Locked/Settings" method="_on_item_selected"]
+[connection signal="pressed" from="tabs/Locked/Settings/settings/properties/save_button" to="tabs/Locked/Settings" method="_on_save_button_pressed"]
+[connection signal="pressed" from="tabs/Locked/Settings/settings/properties/delete_button" to="tabs/Locked/Settings" method="_on_delete_button_pressed"]
+[connection signal="item_selected" from="tabs/Locked/Settings/settings/properties/items" to="tabs/Locked/Settings" method="_on_items_item_selected"]
 [connection signal="pressed" from="MusicPlayer/next" to="MusicPlayer" method="_on_next_pressed"]

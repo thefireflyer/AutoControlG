@@ -3,15 +3,15 @@ extends Panel
 var locked = true
 
 func _on_password_text_entered(new_text):
-	if new_text == DataLibrary.password:
+	if new_text == DataLibrary.data["General"]["password"]:
 		locked = false
 		name = "Settings"
 		#$settings_button.visible = true
-		for new_environment in DataLibrary.locked["environments"].keys():
-			DataLibrary.environments[new_environment] = DataLibrary.locked["environments"][new_environment]
+		for new_environment in DataLibrary.data["Locked"]["environments"].keys():
+			DataLibrary.data["Environments"][new_environment] = DataLibrary.data["Locked"]["environments"][new_environment]
 			
 		
-		for new_link in DataLibrary.locked["links"].keys():
+		for new_link in DataLibrary.data["Locked"]["links"].keys():
 			DataLibrary.links[new_link] = DataLibrary.locked["links"][new_link]
 		
 		get_parent().get_node("Overview/Environments")._ready()
@@ -26,14 +26,14 @@ func lock():
 	name = "Locked"
 	locked = true
 	#$settings_button.visible = false
-	get_parent().get_node("Overview/Environments")._on_environments_item_selected(DataLibrary.environments.size())
+	get_parent().get_node("Overview/Environments")._on_environments_item_selected(DataLibrary.data["Environments"].size())
 	
-	for new_environment in DataLibrary.locked["environments"].keys():
+	for new_environment in DataLibrary.data["Locked"]["environments"].keys():
 		
 		DataLibrary.environments.erase(new_environment)
 		
 	
-	for new_link in DataLibrary.locked["links"].keys():
+	for new_link in DataLibrary.data["Locked"]["links"].keys():
 		DataLibrary.links.erase(new_link)
 	
 	get_parent().get_node("Overview/Environments")._ready()
