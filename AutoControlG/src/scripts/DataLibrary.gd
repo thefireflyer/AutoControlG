@@ -89,8 +89,8 @@ var locked = {
 var data = {
 	
 	"General" : {
-		"password" : "test_password",
-		"maximize" : "false",
+		"password" : ["test_password"],
+		"maximize" : ["false"],
 	},
 	
 	"Environments" : {
@@ -122,30 +122,28 @@ var data = {
 	
 	"Music" : {
 		
-		"Civilization 6 music" : "https://www.youtube.com/watch?v=Z4ciJy3u7BY&list=PL9Xws8aTzwJDjicUyRgvNJhgIQrLvNQjv&index=1",
-		"ABZU music" : "https://www.youtube.com/watch?v=ElzV4PnXM5o",
-		"Ori and the Will of the Wisps music" : "https://www.youtube.com/watch?v=eCbyqm9jcBA",
-		"Collection 1" : "https://www.youtube.com/watch?v=hqG8u0jsk1A",
-		"Collection 2" : "https://www.youtube.com/watch?v=3TAUnYZpMbA",
-		"Random 1" : "https://www.youtube.com/watch?v=jYsSd65Y-Z8",
-		"Random 2" : "https://www.youtube.com/watch?v=3tRPpMQL1KE",
-		"Random 3" : "https://www.youtube.com/watch?v=vEP3sGEjxhY",
-		"Random 4" : "https://www.youtube.com/watch?v=Q5LU2s5wz9U"
+		"Civilization 6 music" : ["https://www.youtube.com/watch?v=Z4ciJy3u7BY&list=PL9Xws8aTzwJDjicUyRgvNJhgIQrLvNQjv&index=1"],
+		"ABZU music" : ["https://www.youtube.com/watch?v=ElzV4PnXM5o"],
+		"Ori and the Will of the Wisps music" : ["https://www.youtube.com/watch?v=eCbyqm9jcBA"],
+		"Collection 1" : ["https://www.youtube.com/watch?v=hqG8u0jsk1A"],
+		"Collection 2" : ["https://www.youtube.com/watch?v=3TAUnYZpMbA"],
+		"Random 1" : ["https://www.youtube.com/watch?v=jYsSd65Y-Z8"],
+		"Random 2" : ["https://www.youtube.com/watch?v=3tRPpMQL1KE"],
+		"Random 3" : ["https://www.youtube.com/watch?v=vEP3sGEjxhY"],
+		"Random 4" : ["https://www.youtube.com/watch?v=Q5LU2s5wz9U"]
 		
 	},
 	
 	"Events" : {
 		
 		"Testing" : {
-			"name" : "Testing",
 			"links" : ["https://thefireflyer.herokuapp.com/signup/TESTING%20events%20triggered!%20AutoControlG"],
-			"time" : {"weekday":2,"hour":15,"minute":00}
+			"time" : {"weekday":[2],"hour":[15],"minute":[00]}
 		},
 		
 		"Testing2" : {
-			"name" : "Testing2",
 			"links" : ["https://thefireflyer.herokuapp.com/signup/TEST2%20events%20triggered!%20AutoControlG"],
-			"time" : {"hour":23,"minute":30, "day": 15}
+			"time" : {"hour":[23],"minute":[30], "day": [15]}
 		},
 		
 	},

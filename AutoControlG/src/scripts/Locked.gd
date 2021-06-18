@@ -3,7 +3,7 @@ extends Panel
 var locked = true
 
 func _on_password_text_entered(new_text):
-	if new_text == DataLibrary.data["General"]["password"]:
+	if new_text == DataLibrary.data["General"]["password"][0]:
 		locked = false
 		name = "Settings"
 		#$settings_button.visible = true

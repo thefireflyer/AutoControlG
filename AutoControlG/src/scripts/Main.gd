@@ -2,10 +2,14 @@ extends Control
 
 
 func _ready():
-	#maximize()
-	#DataLibrary.save_config()
+	
+	DataLibrary.save_config()
 	if not DataLibrary.load_config():
 		DataLibrary.save_config()
+		
+	if DataLibrary.data["General"]["maximize"] == ["true"]:
+		maximize()
+	
 	
 	print(OS.get_datetime())
 		

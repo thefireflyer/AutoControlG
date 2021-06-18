@@ -21,12 +21,13 @@ func run():
 			return
 		
 		$link.text = upcoming_events[0] + "       in "
-		var current_time = OS.get_datetime()
-		var time_till_next_event = get_minutes_till(DataLibrary.events[upcoming_events[0]]["time"])
+		
+		var time_till_next_event = get_minutes_till(DataLibrary.data["Events"][upcoming_events[0]]["time"])
 		
 		if time_till_next_event < 0:
 			#upcoming_events.append(upcoming_events[0])
 			upcoming_events.pop_front()
+			print("already happened")
 		else:
 			print(upcoming_events)
 			
@@ -49,28 +50,31 @@ func run():
 			
 			
 			if time_till_next_event < 5 and time_till_next_event > 0:
+				print("event occuring")
 				_on_link_pressed()
 				
 				upcoming_events.pop_front()
 			else:
+				print("finished calculating")
 				yield(get_tree().create_timer(60), "timeout")
 
 func get_minutes_till(event_time):
+	print(event_time)
 	var current_time = OS.get_datetime()
 	var minutes_till = 0
 	if event_time.has("day"):
-		minutes_till = (event_time["day"] -current_time["day"])*24*60
+		minutes_till = (event_time["day"][0]-current_time["day"])*24*60
 		if minutes_till < 0:
-			minutes_till = (event_time["day"]+365.25 -current_time["day"])*24*60
+			minutes_till = (event_time["day"][0]+365.25 -current_time["day"])*24*60
 	
 	else:
-		minutes_till = (event_time["weekday"] -current_time["weekday"])*24*60
+		minutes_till = (event_time["weekday"][0]-current_time["weekday"])*24*60
 		if minutes_till < 0:
-			minutes_till = (event_time["weekday"]+7 -current_time["weekday"])*24*60
+			minutes_till = (event_time["weekday"][0]+7 -current_time["weekday"])*24*60
 	
 	
-	minutes_till += (event_time["hour"] -current_time["hour"])*60
-	minutes_till += event_time["minute"] -current_time["minute"]
+	minutes_till += (event_time["hour"][0] -current_time["hour"])*60
+	minutes_till += event_time["minute"][0] -current_time["minute"]
 	return minutes_till
 
 
