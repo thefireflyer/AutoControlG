@@ -1,157 +1,199 @@
 extends Panel
 
-var current_group = "General"
-var current_item = ""
+var data = {}
+var file_path = "user://config"
 
-func _ready():
-	update_settings_tree()
-	#update_groups()
-	#update_items()
-	
 
-func update_settings_tree():
-	$settings/settings.clear()
-	var root = $settings/settings.create_item()
-	root.set_text(0,"Settings")
-	
-	run_through_data(DataLibrary.data, root)
-	
+func _on_path_text_entered():
+	#file_path = new_text
+	load_file()
+	update_tree(data)
 
-func run_through_data(data, parent):
-	var data_entries = []
-	if typeof(data) == TYPE_DICTIONARY:
-		data_entries = data.keys()
+
+func _on_item_name_text_entered(new_text):
+	var item_data = $Tree.get_selected().get_metadata(0)
+	item_data["original name"] = $Tree.get_selected().get_text(0)
+	if str(item_data["value"]) == $Tree.get_selected().get_text(0):
+		$Tree.get_selected().set_text(0, new_text)
+		_on_value_text_entered(new_text)
 	else:
-		data_entries = data
-	
-	for item in data_entries:
-		var item_tree = $settings/settings.create_item(parent)
-		item_tree.set_text(0,str(item))
-		item_tree.collapsed = true
-		item_tree.set_editable(0, true)
-		
-		
-		if typeof(data) == TYPE_DICTIONARY:
-			if typeof(data[item]) == TYPE_DICTIONARY or typeof(data[item]) == TYPE_ARRAY:
-				#item_tree.set_editable(0, false)
-				run_through_data(data[item], item_tree)
-				var create_item = $settings/settings.create_item(item_tree)
-				create_item.set_text(0,"create new property")
-		
-func run_through_settings(data, position):
-	
-	pass
-	
+		$Tree.get_selected().set_text(0, new_text)
+		update_properties_panel()
+	run_up_tree($Tree.get_selected())
 
 
-func _on_settings_cell_selected():
-	var selected_tree_item = $settings/settings.get_selected()
-	var selected_item_name = selected_tree_item.get_text(0)
-	
-	if selected_item_name == "create new property":
-		print("TODO: implement new property creation functionality")
-	
-
-func _on_settings_item_rmb_selected(position):
-	print("TODO: implement delete property functionality")
-
-func _on_save_button_pressed():
-	
-	run_through_settings(DataLibrary.data,Vector2(0,0))
-	
-	DataLibrary.save_config()
-
-
-#!!========deprecated=========================!!#
-func update_groups():
-	
-	var res = []
-	for option in DataLibrary.data.keys():
-		res.append(option)
-		res.append(null)
-		res.append(false)
-	$settings/group.items = res
-
-
-func update_items():
-	var res = []
-	for option in DataLibrary.data[current_group].keys():
-		res.append(option)
-		res.append(null)
-		res.append(false)
-	$settings/items.items = res
-
-func update_item():
-	$settings/properties/item_name.text = current_item
-	
-	var is_text = typeof(DataLibrary.data[current_group][current_item]) == TYPE_STRING
-	var is_bool = typeof(DataLibrary.data[current_group][current_item]) == TYPE_BOOL
-	var is_dict = typeof(DataLibrary.data[current_group][current_item]) == TYPE_DICTIONARY
-	
-	$settings/properties/item_value_bool.visible = is_bool
-	$settings/properties/item_value_text.visible = is_text
-	$settings/properties/items.visible = is_dict
-	
-	if is_bool:
-		$settings/properties/item_value_bool.pressed = DataLibrary.data[current_group][current_item]
-	if is_dict:
-		update_items_item()
+func _on_value_text_entered(new_text):
+	var item_data = $Tree.get_selected().get_metadata(0)
+	item_data["original value"] = item_data["value"]
+	if str(item_data["value"]) == $Tree.get_selected().get_text(0):
+		item_data["value"] = new_text
+		$Tree.get_selected().set_metadata(0, item_data)
+		_on_item_name_text_entered(new_text)
 	else:
-		$settings/properties/item_value_text.text = DataLibrary.data[current_group][current_item]
-
-
-func update_items_item():
-	pass
+		item_data["value"] = new_text
+		$Tree.get_selected().set_metadata(0, item_data)
+		update_properties_panel()
+	run_up_tree($Tree.get_selected())
 	
-func update_items_items_item():
-	pass
-
-func get_item_items():
-	pass
 
 
-func _on_group_item_selected(index):
-	print(DataLibrary.data.keys()[index]+"\n")
-	index = index + 2*index
-	current_group = $settings/group.items[index]
+func run_up_tree(current_item):
+	var parent = current_item.get_parent()
+	if parent != null:
+		#print(parent.get_text(0))
+		var parent_data = parent.get_metadata(0)
+		var current_item_data = current_item.get_metadata(0)
+		if typeof(parent_data["value"]) == TYPE_DICTIONARY:
+			parent_data["value"][current_item_data["original name"]] = current_item_data["value"]
+			if str(current_item_data["original name"]) != current_item.get_text(0):
+				if current_item.get_text(0) != "" and str(current_item_data["value"]) != "":
+					parent_data["value"][current_item.get_text(0)] = current_item_data["value"]
+				parent_data["value"].erase(current_item_data["original name"])
+				
+			
+		elif typeof(parent_data["value"]) == TYPE_ARRAY:
+			for item in range(parent_data["value"].size()):
+				if parent_data["value"][item] == current_item.get_metadata(0)["original value"]:
+					parent_data["value"][item] = current_item_data["value"]
+		parent.set_metadata(0,parent_data)
+		run_up_tree(parent)
+
+
+func _on_value_bool_toggled(button_pressed):
+	_on_value_text_entered(str($properties/value_bool.pressed))
+
+
+func _on_create_button_pressed():
+	var new_item = $Tree.get_selected()
 	
-	update_items()
-
-
-func _on_item_selected(index):
-	print(DataLibrary.data[current_group].keys()[index]+"\n")
-	current_item = DataLibrary.data[current_group].keys()[index]
+	var item_value = $create_new_property_panel/property_value_text.text
+	if item_value.to_lower() == "true" or item_value.to_lower() == "false":
+		item_value = bool(item_value.to_lower())
+	if item_value[0] == "{" or item_value[0] == "[":
+		item_value = parse_json(item_value)
 	
-	update_item()
-
-
-func _on_items_item_selected(index):
+	new_item.set_text(0, $create_new_property_panel/property_name.text)
+	new_item.set_metadata(0, {"original name":$create_new_property_panel/property_name.text,
+	 "original value":item_value, "value":item_value})
 	
-	print(DataLibrary.data[current_group].keys()[index]+"\n")
-	current_item = DataLibrary.data[current_group].keys()[index]
+	_on_item_name_text_entered($create_new_property_panel/property_name.text)
+	_on_value_text_entered(item_value)
+	update_properties_panel()
+	update_tree(data)
 	
-	update_items_items_item()
 
-
-
-"""
-func _on_save_button_pressed():
-	var is_bool = typeof(DataLibrary.data[current_group][current_item]) == TYPE_BOOL
-	var is_dict = typeof(DataLibrary.data[current_group][current_item]) == TYPE_DICTIONARY
+func update_create_new_property_panel():
+	$create_new_property_panel.visible = true
 	
-	if is_bool:
-		DataLibrary.data[current_group][current_item] = $settings/properties/item_value_bool.pressed
-	if is_dict:
-		DataLibrary.data[current_group][current_item] = get_item_items()
+	
+	
+
+func update_properties_panel():
+	if $Tree.get_selected().get_text(0) == "create new property":
+		$properties.visible = false
+		update_create_new_property_panel()
+		return
+	
+	$properties.visible = true
+	$create_new_property_panel.visible = false
+	$properties/value_text.visible = false
+	$properties/value_bool.visible = false
+	
+	$properties/item_name.text = $Tree.get_selected().get_text(0)
+	#print(str($Tree.get_selected().get_metadata(0)["value"]))
+	var item_data = $Tree.get_selected().get_metadata(0)["value"]
+	
+	if typeof(item_data) == TYPE_BOOL:
+		$properties/value_bool.pressed = item_data
+		$properties/value_bool.visible = true
+	if typeof(item_data) == TYPE_STRING:
+		$properties/value_text.text = str(item_data)
+		$properties/value_text.visible = true
+
+
+func update_tree(indata, parent=null):
+	if parent==null:
+		$Tree.clear()
+		print("creating new root")
+		var root = $Tree.create_item()
+		root.set_text(0,"Data")
+		root.set_metadata(0,{"original name":"root", "original value":indata, "value":indata})
+		update_tree(indata, root)
+		
 	else:
-		DataLibrary.data[current_group][current_item] = $settings/properties/item_value_text.text
+		var data_entries = []
+		
+		if typeof(indata) == TYPE_DICTIONARY:
+			data_entries = indata.keys()
+		else:
+			data_entries = indata
+		
+		for item in data_entries:
+			var item_tree = $Tree.create_item(parent)
+			item_tree.set_text(0,str(item))
+			item_tree.collapsed = true
+			
+			
+			if typeof(indata) == TYPE_DICTIONARY:
+				
+				item_tree.set_metadata(0, {"original name":str(item), "original value":indata[str(item)], "value":indata[str(item)]})
+				
+				if typeof(indata[item]) == TYPE_DICTIONARY or typeof(indata[item]) == TYPE_ARRAY:
+					
+					update_tree(indata[item], item_tree)
+					var create_item = $Tree.create_item(item_tree)
+					create_item.set_text(0,"create new property")
+					create_item.set_metadata(0,{"original name":"create_item", "original value":null, "value":null})
+		
+			else:
+				item_tree.set_metadata(0, {"original name":str(item), "original value":str(item),"value":str(item)})
+
+
+func update_data():
+	print("updating data")
+	var test_data = $Tree.get_root().get_metadata(0)["value"]
+	print(test_data)
+	data = test_data
+
+
+func load_file():
+	var config_file = File.new()
+	if not config_file.file_exists(file_path):
+		return false
+		
+	config_file.open(file_path, File.READ)
 	
-	DataLibrary.save_config()
+	data = JSON.parse(config_file.get_as_text()).result
+	#print(data)
+	
+	#events = data["events"]
+	#environments = data["environments"]
+	#links = data["links"]
+	#good_music_urls = data["music"]
+	
+	#password = data["password"]
+	
+	config_file.close()
+	$save_button.visible = true
+	return true
 
 
-func _on_delete_button_pressed():
-	pass
+func save_file():
+	update_data()
+	
+	var config_file = File.new()
+	config_file.open(file_path, File.WRITE)
+	
+	config_file.store_line(to_json(data))
+	
+	config_file.close()
+	update_tree(data)
+	
+	DataLibrary.load_config()
+	get_tree().change_scene("res://src/scenes/Main.tscn")
 
-"""
 
 
+func _on_reset_button_pressed():
+	DataLibrary.reset_config()
+	_on_path_text_entered()

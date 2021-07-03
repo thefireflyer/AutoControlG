@@ -12,7 +12,7 @@ func _on_password_text_entered(new_text):
 			
 		
 		for new_link in DataLibrary.data["Locked"]["links"].keys():
-			DataLibrary.links[new_link] = DataLibrary.locked["links"][new_link]
+			DataLibrary.data["Links"][new_link] = DataLibrary.data["Locked"]["links"][new_link]
 		
 		get_parent().get_node("Overview/Environments")._ready()
 		#get_parent().current_tab = 0
