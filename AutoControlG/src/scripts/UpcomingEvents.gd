@@ -63,7 +63,7 @@ func get_minutes_till(event_time):
 	var current_time = OS.get_datetime()
 	var minutes_till = 0
 	if event_time.has("day"):
-		minutes_till = (event_time["day"][0]-current_time["day"])*24*60
+		minutes_till = (int(event_time["day"][0])-current_time["day"])*24*60
 		if minutes_till < 0:
 			minutes_till = (event_time["day"][0]+365.25 -current_time["day"])*24*60
 	
@@ -73,8 +73,8 @@ func get_minutes_till(event_time):
 			minutes_till = (event_time["weekday"][0]+7 -current_time["weekday"])*24*60
 	
 	
-	minutes_till += (event_time["hour"][0] -current_time["hour"])*60
-	minutes_till += event_time["minute"][0] -current_time["minute"]
+	minutes_till += (int(event_time["hour"][0]) -current_time["hour"])*60
+	minutes_till += int(event_time["minute"][0]) -current_time["minute"]
 	return minutes_till
 
 

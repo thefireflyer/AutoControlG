@@ -1,5 +1,5 @@
 # AutoControlG
-AutoControlG is a version of the AutoControl series made primarily in Godot, it currents support events, workspaces/enviroments, quick links and music playlists.
+AutoControlG is a version of the AutoControl series made primarily in Godot, it currents support events, workspaces/environments, quick links and music playlists.
 
 <h2>Usage</h2>
 
@@ -32,4 +32,5 @@ Ctrl+Shift+alt+a, closes background.py
 
 
 <h2>License</h2>
+
 AutoControlG is free under the MIT license

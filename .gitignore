@@ -1,3 +1,4 @@
 *.exe
 *.apk
 AutoControlG/src/private/*
+Releases/*
