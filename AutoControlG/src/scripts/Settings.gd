@@ -30,5 +30,27 @@ func _on_SaveB_pressed():
 
 
 func _on_ResetB_pressed():
+	$AcceptDialog.popup_centered()
+
+func _on_AcceptDialog_confirmed():
 	DataLibrary.reset_config()
 	get_tree().change_scene("res://src/scenes/EntryPoint.tscn")
+
+
+func _on_ImportSettingsB_pressed():
+	$FileDialog.popup_centered()
+
+
+func _on_FileDialog_file_selected(path):
+	DataLibrary.load_config(path)
+	get_tree().change_scene("res://src/scenes/EntryPoint.tscn")
+
+
+func _on_FileDialog2_file_selected(path):
+	file_path = path
+	_on_SaveB_pressed()
+	file_path = "user://config"
+
+
+func _on_ExportSettingsB_pressed():
+	$FileDialog2.popup_centered()
