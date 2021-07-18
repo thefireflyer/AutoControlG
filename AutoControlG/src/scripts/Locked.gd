@@ -30,11 +30,11 @@ func lock():
 	
 	for new_environment in DataLibrary.data["Locked"]["environments"].keys():
 		
-		DataLibrary.environments.erase(new_environment)
+		DataLibrary.data["Environments"].erase(new_environment)
 		
 	
 	for new_link in DataLibrary.data["Locked"]["links"].keys():
-		DataLibrary.links.erase(new_link)
+		DataLibrary.data["Links"].erase(new_link)
 	
 	get_parent().get_node("Overview/Environments")._ready()
 

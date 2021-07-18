@@ -1,0 +1,272 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/theme/main.tres" type="Theme" id=1]
+[ext_resource path="res://src/theme/large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/scripts/Settings.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="Settings" type="Panel"]
+margin_right = 1290.0
+margin_bottom = 713.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 2 )
+text = "Settings"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_left = 4.0
+margin_top = 87.0
+margin_right = 1290.0
+margin_bottom = 138.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="General" type="Panel" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 47.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Panel" type="Panel" parent="TabContainer/General"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_right = 4.0
+margin_bottom = 579.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/General/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -87.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/General/Panel/ScrollContainer"]
+margin_right = 181.0
+margin_bottom = 83.0
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/General/Panel/ScrollContainer/VBoxContainer"]
+margin_right = 181.0
+margin_bottom = 40.0
+text = "Maximize"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/General/Panel/ScrollContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 181.0
+margin_bottom = 83.0
+secret = true
+placeholder_text = "Password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Environments" type="Panel" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 47.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Panel" type="Panel" parent="TabContainer/Environments"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_right = 6.0
+margin_bottom = 579.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Environments/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -81.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Environments/Panel/ScrollContainer"]
+
+[node name="Events" type="Panel" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 47.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Panel" type="Panel" parent="TabContainer/Events"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_right = 6.0
+margin_bottom = 579.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Events/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -81.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Events/Panel/ScrollContainer"]
+
+[node name="Links" type="Panel" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 47.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Panel" type="Panel" parent="TabContainer/Links"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_right = 6.0
+margin_bottom = 579.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Links/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -81.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Links/Panel/ScrollContainer"]
+
+[node name="Music" type="Panel" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 47.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Panel" type="Panel" parent="TabContainer/Music"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_right = 6.0
+margin_bottom = 579.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Music/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Music/Panel/ScrollContainer"]
+
+[node name="Advanced" type="Panel" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 47.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Panel" type="Panel" parent="TabContainer/Advanced"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_right = 6.0
+margin_bottom = 579.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Advanced/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Advanced/Panel/ScrollContainer"]
+margin_right = 1280.0
+margin_bottom = 544.0
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer"]
+margin_right = 1280.0
+margin_bottom = 40.0
+text = "experimental GUI"
+
+[node name="TextEdit" type="TextEdit" parent="TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 1280.0
+margin_bottom = 544.0
+rect_min_size = Vector2( 1280, 500 )
+text = "CONFIG"
+draw_tabs = true
+draw_spaces = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveB" type="Button" parent="."]
+margin_left = 1060.38
+margin_top = 678.0
+margin_right = 1286.38
+margin_bottom = 713.0
+custom_colors/font_color = Color( 0.00784314, 1, 0, 1 )
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetB" type="Button" parent="."]
+margin_left = 4.0
+margin_top = 678.0
+margin_right = 230.0
+margin_bottom = 713.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="SaveB" to="." method="_on_SaveB_pressed"]
+[connection signal="pressed" from="ResetB" to="." method="_on_ResetB_pressed"]

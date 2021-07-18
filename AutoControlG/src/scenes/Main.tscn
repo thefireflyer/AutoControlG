@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://src/scripts/MusicPlayer.gd" type="Script" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://src/scripts/QuickLinks.gd" type="Script" id=9]
 [ext_resource path="res://assets/64284477.png" type="Texture" id=10]
 [ext_resource path="res://src/scenes/UpcomingEvents.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/scripts/Settings.gd" type="Script" id=12]
+[ext_resource path="res://src/scenes/Settings.tscn" type="PackedScene" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.313726, 0, 0.466667, 1 )
@@ -87,39 +87,7 @@ noise = SubResource( 18 )
 [sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.0509804, 0.027451, 0.0823529, 1 )
 
-[sub_resource type="StyleBoxEmpty" id=22]
-
-[sub_resource type="StyleBoxEmpty" id=26]
-
-[sub_resource type="StyleBoxEmpty" id=33]
-
-[sub_resource type="StyleBoxEmpty" id=30]
-
-[sub_resource type="StyleBoxEmpty" id=31]
-
-[sub_resource type="StyleBoxEmpty" id=32]
-
-[sub_resource type="StyleBoxEmpty" id=27]
-
-[sub_resource type="StyleBoxEmpty" id=28]
-
-[sub_resource type="StyleBoxEmpty" id=29]
-
-[sub_resource type="StyleBoxEmpty" id=34]
-
-[sub_resource type="StyleBoxEmpty" id=35]
-
-[sub_resource type="StyleBoxEmpty" id=36]
-
-[sub_resource type="StyleBoxEmpty" id=37]
-
-[sub_resource type="StyleBoxEmpty" id=38]
-
-[sub_resource type="StyleBoxEmpty" id=39]
-
-[sub_resource type="StyleBoxEmpty" id=40]
-
-[sub_resource type="StyleBoxFlat" id=25]
+[sub_resource type="StyleBoxFlat" id=38]
 bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Main" type="Control"]
@@ -321,148 +289,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Panel" parent="tabs/Locked"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -38.0
-custom_styles/panel = SubResource( 22 )
-script = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="name" type="Label" parent="tabs/Locked/Settings"]
-anchor_right = 1.0
-margin_bottom = 85.0
-custom_fonts/font = ExtResource( 4 )
-text = "Settings"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tree" type="Tree" parent="tabs/Locked/Settings"]
-margin_top = 85.0
-margin_right = 775.0
-margin_bottom = 723.0
-custom_styles/bg = SubResource( 26 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="properties" type="Panel" parent="tabs/Locked/Settings"]
-visible = false
-margin_left = 796.0
-margin_top = 85.0
-margin_right = 1286.0
-margin_bottom = 723.0
-custom_styles/panel = SubResource( 33 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="item_name" type="LineEdit" parent="tabs/Locked/Settings/properties"]
-margin_right = 489.0
-margin_bottom = 39.0
-custom_styles/read_only = SubResource( 30 )
-custom_styles/focus = SubResource( 31 )
-custom_styles/normal = SubResource( 32 )
-
-[node name="value_text" type="LineEdit" parent="tabs/Locked/Settings/properties"]
-margin_top = 39.0
-margin_right = 489.0
-margin_bottom = 78.0
-custom_styles/read_only = SubResource( 27 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/normal = SubResource( 29 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="value_bool" type="CheckBox" parent="tabs/Locked/Settings/properties"]
-margin_top = 39.0
-margin_right = 24.0
-margin_bottom = 76.0
-text = "Value"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="create_new_property_panel" type="Panel" parent="tabs/Locked/Settings"]
-visible = false
-margin_left = 796.0
-margin_top = 85.0
-margin_right = 1288.0
-margin_bottom = 723.0
-custom_styles/panel = SubResource( 34 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="property_name" type="LineEdit" parent="tabs/Locked/Settings/create_new_property_panel"]
-margin_right = 492.0
-margin_bottom = 39.0
-custom_styles/read_only = SubResource( 35 )
-custom_styles/focus = SubResource( 36 )
-custom_styles/normal = SubResource( 37 )
-
-[node name="property_value_text" type="LineEdit" parent="tabs/Locked/Settings/create_new_property_panel"]
-margin_top = 39.0
-margin_right = 490.0
-margin_bottom = 78.0
-custom_styles/read_only = SubResource( 38 )
-custom_styles/focus = SubResource( 39 )
-custom_styles/normal = SubResource( 40 )
-
-[node name="create_button" type="Button" parent="tabs/Locked/Settings/create_new_property_panel"]
-margin_top = 78.0
-margin_right = 96.0
-margin_bottom = 113.0
-text = "Confirm"
-flat = true
-
-[node name="save_button" type="Button" parent="tabs/Locked/Settings"]
-margin_left = 1212.26
-margin_top = 674.0
-margin_right = 1275.26
-margin_bottom = 709.0
-custom_colors/font_color = Color( 0, 1, 0.203922, 1 )
-text = "Save"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="refresh_button" type="Button" parent="tabs/Locked/Settings"]
-margin_left = 1084.0
-margin_top = 674.0
-margin_right = 1176.0
-margin_bottom = 709.0
-text = "Refresh"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="reset_button" type="Button" parent="tabs/Locked/Settings"]
-margin_left = 796.0
-margin_top = 674.0
-margin_right = 867.0
-margin_bottom = 709.0
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "Reset"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Settings" parent="tabs/Locked" instance=ExtResource( 12 )]
 
 [node name="MusicPlayer" type="Panel" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -38.0
-custom_styles/panel = SubResource( 25 )
+custom_styles/panel = SubResource( 38 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -500,12 +334,4 @@ __meta__ = {
 [connection signal="item_selected" from="tabs/Overview/Environments/environments" to="tabs/Overview/Environments" method="_on_environments_item_selected"]
 [connection signal="item_selected" from="tabs/Overview/QuickLinks/links" to="tabs/Overview/QuickLinks" method="_on_links_item_selected"]
 [connection signal="text_entered" from="tabs/Locked/LockScreen/password" to="tabs/Locked" method="_on_password_text_entered"]
-[connection signal="cell_selected" from="tabs/Locked/Settings/Tree" to="tabs/Locked/Settings" method="update_properties_panel"]
-[connection signal="text_entered" from="tabs/Locked/Settings/properties/item_name" to="tabs/Locked/Settings" method="_on_item_name_text_entered"]
-[connection signal="text_entered" from="tabs/Locked/Settings/properties/value_text" to="tabs/Locked/Settings" method="_on_value_text_entered"]
-[connection signal="toggled" from="tabs/Locked/Settings/properties/value_bool" to="tabs/Locked/Settings" method="_on_value_bool_toggled"]
-[connection signal="pressed" from="tabs/Locked/Settings/create_new_property_panel/create_button" to="tabs/Locked/Settings" method="_on_create_button_pressed"]
-[connection signal="pressed" from="tabs/Locked/Settings/save_button" to="tabs/Locked/Settings" method="save_file"]
-[connection signal="pressed" from="tabs/Locked/Settings/refresh_button" to="tabs/Locked/Settings" method="_on_path_text_entered"]
-[connection signal="pressed" from="tabs/Locked/Settings/reset_button" to="tabs/Locked/Settings" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="MusicPlayer/next" to="MusicPlayer" method="_on_next_pressed"]
