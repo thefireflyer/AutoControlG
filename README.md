@@ -3,7 +3,7 @@ AutoControlG is a version of the AutoControl series made primarily in Godot, it 
 
 <h2>Usage</h2>
 
-You can either simply run AutoControlG.exe (on windows) or if you have python installed you can run the background.py script for hotkeys (currently only known to work on windows).
+You can either simply run AutoControlG.exe (on windows) or if you have python installed you can run the background.py script for hotkeys (currently only supports windows).
 
 # 
 
@@ -16,9 +16,7 @@ Ctrl+Shift+alt+a, closes background.py
 
 <h2>Planned upcoming features</h2>
 
-<h3>v1.1.x</h3>
-
-- better settings menu
+<h3>v1.x</h3>
 
 - proper setup process with GUI
 
@@ -26,10 +24,11 @@ Ctrl+Shift+alt+a, closes background.py
 
 - environment specific music
 
-<h3>v1.2.x</h3>
+<h3>v2.x</h3>
 
 - Updated GUI
 
+- Local server API
 
 <h2>License</h2>
 
