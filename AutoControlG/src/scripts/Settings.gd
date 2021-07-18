@@ -42,7 +42,25 @@ func _on_ImportSettingsB_pressed():
 
 
 func _on_FileDialog_file_selected(path):
-	DataLibrary.load_config(path)
+	
+	var config_file = File.new()
+	if not config_file.file_exists(path):
+		print("No save file :(")
+		return false
+		
+	config_file.open(path, File.READ)
+	
+	var data = config_file.get_as_text()
+	#print(data)
+	config_file.close()
+	
+	config_file = File.new()
+	config_file.open("user://config", File.WRITE)
+	
+	config_file.store_line(data)
+	
+	config_file.close()
+	
 	get_tree().change_scene("res://src/scenes/EntryPoint.tscn")
 
 

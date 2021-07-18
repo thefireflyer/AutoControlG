@@ -83,14 +83,14 @@ var data = {
 }
 var backup = data.duplicate()
 
-func load_config(path="user://config"):
+func load_config():
 	
 	var config_file = File.new()
-	if not config_file.file_exists(path):
+	if not config_file.file_exists("user://config"):
 		print("No save file :(")
 		return false
 		
-	config_file.open(path, File.READ)
+	config_file.open("user://config", File.READ)
 	
 	data = JSON.parse(config_file.get_as_text()).result
 	#print(data)

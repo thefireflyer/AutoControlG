@@ -7,9 +7,17 @@ extends Panel
 var current_environment = null
 var local_environments = {}
 
+var last_lock_state = true
+
 #============================================================
 
 #=====================Main functionality=====================
+func _process(delta):
+	if DataLibrary.is_locked != last_lock_state:
+		_draw()
+		last_lock_state = DataLibrary.is_locked
+
+
 func _draw():
 	local_environments = DataLibrary.data["Environments"].duplicate()
 	local_environments["None"] = {}
