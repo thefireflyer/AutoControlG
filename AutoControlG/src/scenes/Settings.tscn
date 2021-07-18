@@ -79,7 +79,6 @@ __meta__ = {
 margin_top = 44.0
 margin_right = 181.0
 margin_bottom = 83.0
-secret = true
 placeholder_text = "Password"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -115,6 +114,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Environments/Panel/ScrollContainer"]
 
 [node name="Events" type="Panel" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -200,7 +200,6 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Music/Panel/ScrollContainer"]
 
 [node name="Advanced" type="Panel" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -232,7 +231,7 @@ margin_bottom = 544.0
 [node name="CheckButton" type="CheckButton" parent="TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer"]
 margin_right = 1280.0
 margin_bottom = 40.0
-text = "experimental GUI"
+text = "experimental GUI mode"
 
 [node name="TextEdit" type="TextEdit" parent="TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer"]
 margin_top = 44.0

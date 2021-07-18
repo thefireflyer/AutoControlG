@@ -13,16 +13,25 @@ func _ready():
 		print("invalid config found, resetting")
 		DataLibrary.reset_config()
 	
-	if DataLibrary.data["General"]["maximize"] == ["true"]:
+	if DataLibrary.data["General"]["maximize"] == "true":
 		print("starting in maximized form")
 		maximize()
-	
+	else:
+		OS.window_size = Vector2(1290, 800)
+		#OS.window_position = OS.get_screen_size()/2 - OS.window_size
+		OS.set_window_always_on_top(false)
 	
 	print(OS.get_datetime())
 		
 	get_tree().get_root().set_transparent_background(true)
 	
-	#OS.set_window_mouse_passthrough(PoolVector2Array([Vector2(0,0),Vector2(0,500),Vector2(500,500),Vector2(500,0)]))
+	
+	#--------------------------------------------------
+	$T.polygon[6] = Vector2(OS.get_screen_size().x, 0)
+	$T.polygon[7] = OS.get_screen_size()
+	$T.polygon[8] = Vector2(0, OS.get_screen_size().y)
+	#OS.set_window_mouse_passthrough($T.polygon)
+	#--------------------------------------------------
 	
 	get_tree().change_scene("res://src/scenes/Main.tscn")
 
@@ -32,7 +41,7 @@ const FULLSCREEN_MODE = true
 func maximize():
 	
 	OS.window_position = Vector2(0,0)
-	OS.window_size = OS.get_screen_size() - Vector2(0,1)
+	OS.window_size = OS.get_screen_size() - Vector2(0,0.1)
 	OS.set_window_always_on_top(true)
 	
 	#old version

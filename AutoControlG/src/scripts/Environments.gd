@@ -10,11 +10,11 @@ var local_environments = {}
 #============================================================
 
 #=====================Main functionality=====================
-func _ready():
-	
+func _draw():
 	local_environments = DataLibrary.data["Environments"].duplicate()
 	local_environments["None"] = {}
 	configure_options()
+	
 
 func _on_environments_item_selected(index):
 	print(local_environments.keys()[index]+"\n")
@@ -27,9 +27,10 @@ func configure_options():
 	
 	var res = []
 	for option in local_environments.keys():
-		res.append(option)
-		res.append(null)
-		res.append(false)
+		if (not local_environments[option].has("locked")) or not DataLibrary.is_locked:
+			res.append(option)
+			res.append(null)
+			res.append(false)
 	$environments.items = res
 
 #============================================================

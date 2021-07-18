@@ -1,10 +1,11 @@
 extends Node
 
+var is_locked = true
 var data = {
 	
 	"General" : {
-		"password" : ["test_password"],
-		"maximize" : ["false"],
+		"password" : "",
+		"maximize" : "false",
 	},
 	
 	"Environments" : {
@@ -17,8 +18,12 @@ var data = {
 			"apps" : ["C:/Program Files/Krita (x64)/bin/krita.exe"],
 			"links" : ["https://itch.io/dashboard"],
 			"music" : {}
-		}
+		},
 		
+		"exampleLockedEnv" : {
+				"apps" : ["C:/Program Files/PureRef/PureRef.exe"],
+				"locked" : "locked"
+			},
 	},
 
 	"Links" : {
@@ -66,9 +71,7 @@ var data = {
 	"Locked" : {
 		
 		"environments" : {
-			"exampleLockedEnv" : {
-				"apps" : ["C:/Program Files/PureRef/PureRef.exe"]
-			}
+			
 		},
 		
 		"links" : {
