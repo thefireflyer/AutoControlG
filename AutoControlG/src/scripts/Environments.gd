@@ -20,7 +20,7 @@ func _process(delta):
 
 func _draw():
 	local_environments = DataLibrary.data["Environments"].duplicate()
-	local_environments["None"] = {}
+	local_environments["None"] = {"locked":"false"}
 	configure_options()
 	
 
@@ -35,7 +35,7 @@ func configure_options():
 	
 	var res = []
 	for option in local_environments.keys():
-		if (not local_environments[option].has("locked")) or not DataLibrary.is_locked:
+		if (not local_environments[option]["locked"] == "True") or not DataLibrary.is_locked:
 			res.append(option)
 			res.append(null)
 			res.append(false)

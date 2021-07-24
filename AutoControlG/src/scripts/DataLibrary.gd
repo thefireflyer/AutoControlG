@@ -11,29 +11,34 @@ var data = {
 	"Environments" : {
 	
 		"Testing1" : {
-			"apps" : ["C:/Program Files/Blender Foundation/Blender 2.92/blender.exe", "C:/Program Files/Krita (x64)/bin/krita.exe"]
+			"apps" : ["C:/Program Files/Blender Foundation/Blender 2.92/blender.exe", "C:/Program Files/Krita (x64)/bin/krita.exe"],
+			"locked" : "false"
 		},
 		
 		"Testing2" : {
 			"apps" : ["C:/Program Files/Krita (x64)/bin/krita.exe"],
 			"links" : ["https://itch.io/dashboard"],
-			"music" : {}
+			"music" : {},
+			"locked" : "false"
 		},
 		
 		"exampleLockedEnv" : {
 				"apps" : ["C:/Program Files/PureRef/PureRef.exe"],
-				"locked" : "locked"
+				"locked" : "True"
 			},
 	},
 
 	"Links" : {
 		
 		#TODO: update to .json configurable
-		"res://assets/64284477.png" : ["https://thefireflyer.herokuapp.com/",
-		 "https://flyingfire.theflyingfire.repl.co/",
+		"" : ["https://github.com"],
+		
+		"gf" : ["https://itch.io"],
+		
+		"res://assets/64284477.png" : ["https://thefireflyer.herokuapp.com",
+		 "https://flyingfire.theflyingfire.repl.co",
 		 "https://thefireflyer.wixsite.com/flyingfire"],
 		
-		"" : ["https://itch.io/dashboard"]
 		
 		
 	},
@@ -65,20 +70,7 @@ var data = {
 			"time" : {"hour":[23],"minute":[30], "day": [15]}
 		},
 		
-	},
-	
-	
-	"Locked" : {
-		
-		"environments" : {
-			
-		},
-		
-		"links" : {
-			"" : ["https://www.youtube.com/watch?v=jYsSd65Y-Z8"]
-		}
-		
-	},
+	}
 	
 }
 var backup = data.duplicate()
@@ -115,26 +107,30 @@ func save_config():
 	config_file.close()
 
 func reset_config():
+	print(data)
 	data = backup
 	save_config()
 
 func verify_config():
 	if not "General" in data:
+		print("failed to load general settings")
 		return false
 	
 	if not "Environments" in data:
+		print("failed to load environments")
 		return false
 	
 	if not "Links" in data:
+		print("failed to load links")
 		return false
 	
 	if not "Music" in data:
+		print("failed to load music")
 		return false
 	
 	if not "Events" in data:
+		print("failed to load events")
 		return false
 	
-	if not "Locked" in data:
-		return false
 	
 	return true

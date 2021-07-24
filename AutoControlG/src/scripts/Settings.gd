@@ -15,7 +15,18 @@ func _on_SaveB_pressed():
 	data["General"]["maximize"] = str($TabContainer/General/Panel/ScrollContainer/VBoxContainer/CheckButton.pressed).to_lower()
 	data["General"]["password"] = $TabContainer/General/Panel/ScrollContainer/VBoxContainer/LineEdit.text
 	
+	var env_data = $TabContainer/Environments/Panel.get_data("Environments")
+	print(env_data)
+	data["Environments"] = env_data
 	
+	
+	#var link_data = $TabContainer/Links/PathCollectionSettingsPanel.get_data()
+	#print(link_data)
+	#data["Links"] = link_data
+	
+	#var music_data = $TabContainer/Music/PathCollectionSettingsPanel.get_data()
+	#print(music_data)
+	#data["Music"] = music_data
 	
 	var config_file = File.new()
 	config_file.open(file_path, File.WRITE)

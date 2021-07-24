@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	
+	#DataLibrary.reset_config()
 	
 	print(OS.get_name())
 	print(OS.is_debug_build())
