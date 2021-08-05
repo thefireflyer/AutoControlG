@@ -9,7 +9,7 @@ func configure_options(options):
 	for option in options:
 		#res.append(option)
 		#res.append("link")
-		#res.append(null)
+		res.append(null)
 		
 		res.append(load(option))
 		res.append(false)

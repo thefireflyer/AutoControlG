@@ -20,13 +20,13 @@ func _on_SaveB_pressed():
 	data["Environments"] = env_data
 	
 	
-	#var link_data = $TabContainer/Links/PathCollectionSettingsPanel.get_data()
-	#print(link_data)
-	#data["Links"] = link_data
+	var link_data = $TabContainer/Links/Panel.get_data("Links")
+	print(link_data)
+	data["Links"] = link_data
 	
-	#var music_data = $TabContainer/Music/PathCollectionSettingsPanel.get_data()
-	#print(music_data)
-	#data["Music"] = music_data
+	var music_data = $TabContainer/Music/Panel.get_data("Music")
+	print(music_data)
+	data["Music"] = music_data
 	
 	var config_file = File.new()
 	config_file.open(file_path, File.WRITE)

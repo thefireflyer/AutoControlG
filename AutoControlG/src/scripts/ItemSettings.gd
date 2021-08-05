@@ -20,6 +20,8 @@ func get_data(type):
 	data["locked"] = str($CheckButton.pressed)
 	data["apps"] = []
 	data["links"] = []
+	if type == "Music" or type == "Links":
+		data = []
 	
 	var AddPathButton = $ScrollContainer/VBoxContainer/AddPathB
 	$ScrollContainer/VBoxContainer.remove_child(AddPathButton)
@@ -30,6 +32,8 @@ func get_data(type):
 				data["links"].append(path.get_data())
 			else:
 				data["apps"].append(path.get_data())
+		else:
+			data.append(path.get_data())
 			
 	$ScrollContainer/VBoxContainer.add_child(AddPathButton)
 	return data

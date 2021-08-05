@@ -3,7 +3,7 @@
 [ext_resource path="res://src/theme/main.tres" type="Theme" id=1]
 [ext_resource path="res://src/theme/large.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/scripts/Settings.gd" type="Script" id=3]
-[ext_resource path="res://src/scenes/EnvironmentsSettingsPanel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/scenes/EnvironmentSettingsPanel.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -113,6 +113,8 @@ margin_top = 47.0
 margin_right = -4.0
 margin_bottom = -4.0
 
+[node name="Panel" parent="TabContainer/Links" instance=ExtResource( 4 )]
+
 [node name="Music" type="Panel" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -121,6 +123,8 @@ margin_left = 4.0
 margin_top = 47.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="Panel" parent="TabContainer/Music" instance=ExtResource( 4 )]
 
 [node name="Advanced" type="Panel" parent="TabContainer"]
 visible = false

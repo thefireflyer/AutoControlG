@@ -2,7 +2,7 @@ extends Panel
 
 func _on_AddItemB_pressed():
 	
-	$ScrollContainer/VBoxContainer.add_child(load("res://src/scenes/ItemSettings.tscn").instance())
+	$ScrollContainer/VBoxContainer.add_child(load("res://src/scenes/EnvironmentItemSettings.tscn").instance())
 	var AddPathButton = $ScrollContainer/VBoxContainer/AddItemB
 	$ScrollContainer/VBoxContainer.remove_child(AddPathButton)
 	$ScrollContainer/VBoxContainer.add_child(AddPathButton)
