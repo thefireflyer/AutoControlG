@@ -3,7 +3,7 @@
 [ext_resource path="res://src/theme/main.tres" type="Theme" id=1]
 [ext_resource path="res://src/theme/large.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/scripts/Settings.gd" type="Script" id=3]
-[ext_resource path="res://src/scenes/EnvironmentSettingsPanel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/scenes/SettingsPanel.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 

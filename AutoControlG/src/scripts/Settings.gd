@@ -2,7 +2,7 @@ extends Panel
 
 
 func _draw():
-	$TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer/TextEdit.text = to_json(DataLibrary.data)
+	$TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer/TextEdit.text = JSON.print(DataLibrary.data, "	")#to_json(DataLibrary.data)
 	$TabContainer/General/Panel/ScrollContainer/VBoxContainer/CheckButton.pressed = DataLibrary.data["General"]["maximize"] == "true"
 	$TabContainer/General/Panel/ScrollContainer/VBoxContainer/LineEdit.text = DataLibrary.data["General"]["password"]
 
@@ -31,7 +31,7 @@ func _on_SaveB_pressed():
 	var config_file = File.new()
 	config_file.open(file_path, File.WRITE)
 	
-	config_file.store_line(to_json(data))
+	config_file.store_string(JSON.print(data, "	"))#store_line(to_json(data))
 	
 	config_file.close()
 	
