@@ -1,11 +1,9 @@
 # AutoControlG
 AutoControlG is a version of the AutoControl series made in Godot, it currently support events, workspaces/environments, quick links and music playlists.
 
-<h2>Changelog</h2>
+<h2>Planned upcoming features/updates</h2>
 
-
-
-<h2>Planned upcoming features</h2>
+- quick links ui redesign
 
 - environment specific music
 
