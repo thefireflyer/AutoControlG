@@ -1,11 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/theme/main.tres" type="Theme" id=1]
 [ext_resource path="res://src/theme/large.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/scripts/Settings.gd" type="Script" id=3]
-[ext_resource path="res://src/scenes/SettingsPanel.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [node name="Settings" type="Panel"]
 margin_right = 1290.0
@@ -27,158 +32,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TabContainer" type="TabContainer" parent="."]
-margin_left = 4.0
-margin_top = 87.0
-margin_right = 1290.0
-margin_bottom = 138.0
-tab_align = 0
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 96.0
+margin_right = 14.0
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="General" type="Panel" parent="TabContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 47.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Panel" type="Panel" parent="TabContainer/General"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -8.0
-margin_right = 4.0
-margin_bottom = 579.0
+custom_styles/bg = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/General/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -87.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/General/Panel/ScrollContainer"]
-margin_right = 181.0
-margin_bottom = 83.0
-
-[node name="CheckButton" type="CheckButton" parent="TabContainer/General/Panel/ScrollContainer/VBoxContainer"]
-margin_right = 181.0
-margin_bottom = 40.0
-text = "Maximize"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LineEdit" type="LineEdit" parent="TabContainer/General/Panel/ScrollContainer/VBoxContainer"]
-margin_top = 44.0
-margin_right = 181.0
-margin_bottom = 83.0
-placeholder_text = "Password"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Environments" type="Panel" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 47.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Panel" parent="TabContainer/Environments" instance=ExtResource( 4 )]
-
-[node name="Events" type="Panel" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 47.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Links" type="Panel" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 47.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Panel" parent="TabContainer/Links" instance=ExtResource( 4 )]
-
-[node name="Music" type="Panel" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 47.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Panel" parent="TabContainer/Music" instance=ExtResource( 4 )]
-
-[node name="Advanced" type="Panel" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 47.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="Panel" type="Panel" parent="TabContainer/Advanced"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -8.0
-margin_right = 6.0
-margin_bottom = 579.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Advanced/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Advanced/Panel/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 622.0
+margin_bottom = 578.0
 
-[node name="CheckButton" type="CheckButton" parent="TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer"]
+[node name="ImportSettingsB" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
 margin_right = 1280.0
-margin_bottom = 40.0
-text = "experimental GUI mode"
-
-[node name="ImportSettingsB" type="Button" parent="TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer"]
-margin_top = 44.0
-margin_right = 1280.0
-margin_bottom = 79.0
+margin_bottom = 35.0
 text = "import settings"
+flat = true
 
-[node name="ExportSettingsB" type="Button" parent="TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer"]
-margin_top = 83.0
+[node name="ExportSettingsB" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_top = 39.0
 margin_right = 1280.0
-margin_bottom = 118.0
+margin_bottom = 74.0
 text = "export settings"
+flat = true
 
-[node name="TextEdit" type="TextEdit" parent="TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer"]
-margin_top = 122.0
+[node name="TextEdit" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_top = 78.0
 margin_right = 1280.0
-margin_bottom = 622.0
+margin_bottom = 578.0
 rect_min_size = Vector2( 1280, 500 )
+custom_styles/normal = SubResource( 4 )
 text = "CONFIG"
+syntax_highlighting = true
 draw_tabs = true
 draw_spaces = true
 __meta__ = {
@@ -251,8 +147,8 @@ access = 2
 current_dir = "/Users/Aidan/Documents/AutoControlG/AutoControlG"
 current_path = "/Users/Aidan/Documents/AutoControlG/AutoControlG/"
 
-[connection signal="pressed" from="TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer/ImportSettingsB" to="." method="_on_ImportSettingsB_pressed"]
-[connection signal="pressed" from="TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer/ExportSettingsB" to="." method="_on_ExportSettingsB_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ImportSettingsB" to="." method="_on_ImportSettingsB_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ExportSettingsB" to="." method="_on_ExportSettingsB_pressed"]
 [connection signal="pressed" from="SaveB" to="." method="_on_SaveB_pressed"]
 [connection signal="pressed" from="ResetB" to="." method="_on_ResetB_pressed"]
 [connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]

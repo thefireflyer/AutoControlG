@@ -1,17 +1,7 @@
 # AutoControlG
-AutoControlG is a version of the AutoControl series made primarily in Godot, it currents support events, workspaces/environments, quick links and music playlists.
+AutoControlG is a version of the AutoControl series made in Godot, it currently support events, workspaces/environments, quick links and music playlists.
 
-<h2>Usage</h2>
-
-You can either simply run AutoControlG.exe (on windows) or if you have python installed you can run the background.py script for hotkeys (currently only supports windows).
-
-# 
-
-Hotkeys:
-
-Ctrl+Shift+a, opens AutoControlG.exe
-
-Ctrl+Shift+alt+a, closes background.py
+<h2>Changelog</h2>
 
 
 
@@ -29,9 +19,9 @@ Ctrl+Shift+alt+a, closes background.py
 
 <h3>v2.x</h3>
 
-- Updated GUI
+- updated GUI
 
-- Local server API
+- local server API
 
 - support for multiple users
 

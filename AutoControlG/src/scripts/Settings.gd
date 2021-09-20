@@ -2,31 +2,13 @@ extends Panel
 
 
 func _draw():
-	$TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer/TextEdit.text = JSON.print(DataLibrary.data, "	")#to_json(DataLibrary.data)
-	$TabContainer/General/Panel/ScrollContainer/VBoxContainer/CheckButton.pressed = DataLibrary.data["General"]["maximize"] == "true"
-	$TabContainer/General/Panel/ScrollContainer/VBoxContainer/LineEdit.text = DataLibrary.data["General"]["password"]
-
+	$Panel/ScrollContainer/VBoxContainer/TextEdit.text = JSON.print(DataLibrary.data, "	")#to_json(DataLibrary.data)
 
 var file_path = "user://config"
 
 func _on_SaveB_pressed():
 	
-	var data = JSON.parse($TabContainer/Advanced/Panel/ScrollContainer/VBoxContainer/TextEdit.text).result
-	data["General"]["maximize"] = str($TabContainer/General/Panel/ScrollContainer/VBoxContainer/CheckButton.pressed).to_lower()
-	data["General"]["password"] = $TabContainer/General/Panel/ScrollContainer/VBoxContainer/LineEdit.text
-	
-	var env_data = $TabContainer/Environments/Panel.get_data("Environments")
-	print(env_data)
-	data["Environments"] = env_data
-	
-	
-	var link_data = $TabContainer/Links/Panel.get_data("Links")
-	print(link_data)
-	data["Links"] = link_data
-	
-	var music_data = $TabContainer/Music/Panel.get_data("Music")
-	print(music_data)
-	data["Music"] = music_data
+	var data = JSON.parse($Panel/ScrollContainer/VBoxContainer/TextEdit.text).result
 	
 	var config_file = File.new()
 	config_file.open(file_path, File.WRITE)
