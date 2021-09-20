@@ -2,6 +2,7 @@ extends Node
 
 var is_locked = true
 var data = {
+	"version" : "1.0.0",
 	
 	"General" : {
 		"password" : "",
