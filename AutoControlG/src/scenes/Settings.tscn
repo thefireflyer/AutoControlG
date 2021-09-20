@@ -1,0 +1,158 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/theme/main.tres" type="Theme" id=1]
+[ext_resource path="res://src/theme/large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/scripts/Settings.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="Settings" type="Panel"]
+margin_right = 1290.0
+margin_bottom = 713.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 2 )
+text = "Settings"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 96.0
+margin_right = 14.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/bg = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+margin_right = 1280.0
+margin_bottom = 578.0
+
+[node name="ImportSettingsB" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_right = 1280.0
+margin_bottom = 35.0
+text = "import settings"
+flat = true
+
+[node name="ExportSettingsB" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_top = 39.0
+margin_right = 1280.0
+margin_bottom = 74.0
+text = "export settings"
+flat = true
+
+[node name="TextEdit" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_top = 78.0
+margin_right = 1280.0
+margin_bottom = 578.0
+rect_min_size = Vector2( 1280, 500 )
+custom_styles/normal = SubResource( 4 )
+text = "CONFIG"
+syntax_highlighting = true
+draw_tabs = true
+draw_spaces = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveB" type="Button" parent="."]
+margin_left = 1060.38
+margin_top = 678.0
+margin_right = 1286.38
+margin_bottom = 713.0
+custom_colors/font_color = Color( 0.00784314, 1, 0, 1 )
+text = "Save"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetB" type="Button" parent="."]
+margin_left = 4.0
+margin_top = 678.0
+margin_right = 230.0
+margin_bottom = 713.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Reset"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcceptDialog" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -230.0
+margin_top = -44.0
+margin_right = 230.0
+margin_bottom = 44.0
+dialog_text = "Are you sure you want to reset all settings?"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -233.0
+margin_top = -317.5
+margin_right = 233.0
+margin_bottom = 345.5
+window_title = "Open a File"
+dialog_text = "Choose a config file to import settings from"
+dialog_hide_on_ok = true
+mode = 0
+access = 2
+current_dir = "/Users/Aidan/Documents/AutoControlG/AutoControlG"
+current_path = "/Users/Aidan/Documents/AutoControlG/AutoControlG/"
+
+[node name="FileDialog2" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -326.439
+margin_top = -280.5
+margin_right = 330.561
+margin_bottom = 310.5
+window_title = "Backup settings"
+dialog_text = "Choose a config file to import settings from"
+dialog_hide_on_ok = true
+access = 2
+current_dir = "/Users/Aidan/Documents/AutoControlG/AutoControlG"
+current_path = "/Users/Aidan/Documents/AutoControlG/AutoControlG/"
+
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ImportSettingsB" to="." method="_on_ImportSettingsB_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ExportSettingsB" to="." method="_on_ExportSettingsB_pressed"]
+[connection signal="pressed" from="SaveB" to="." method="_on_SaveB_pressed"]
+[connection signal="pressed" from="ResetB" to="." method="_on_ResetB_pressed"]
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="file_selected" from="FileDialog2" to="." method="_on_FileDialog2_file_selected"]

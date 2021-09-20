@@ -5,7 +5,13 @@
 [node name="EntryPoint" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -1.41418
+margin_right = -1.41418
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="T" type="CollisionPolygon2D" parent="."]
+position = Vector2( -2.9967, 0 )
+polygon = PoolVector2Array( 200, 200, 200, 700, 1000, 700, 1000, 200, 561.773, 200, 634.125, 0, 1330.84, 0, 1320.35, 800, -20.636, 800, -14.643, 0, 633.979, 0, 561.901, 200.1 )

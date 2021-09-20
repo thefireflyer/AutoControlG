@@ -7,14 +7,22 @@ extends Panel
 var current_environment = null
 var local_environments = {}
 
+var last_lock_state = true
+
 #============================================================
 
 #=====================Main functionality=====================
-func _ready():
-	
+func _process(delta):
+	if DataLibrary.is_locked != last_lock_state:
+		_draw()
+		last_lock_state = DataLibrary.is_locked
+
+
+func _draw():
 	local_environments = DataLibrary.data["Environments"].duplicate()
-	local_environments["None"] = {}
+	local_environments["None"] = {"locked":"false"}
 	configure_options()
+	
 
 func _on_environments_item_selected(index):
 	print(local_environments.keys()[index]+"\n")
@@ -27,9 +35,10 @@ func configure_options():
 	
 	var res = []
 	for option in local_environments.keys():
-		res.append(option)
-		res.append(null)
-		res.append(false)
+		if (not local_environments[option]["locked"] == "True") or not DataLibrary.is_locked:
+			res.append(option)
+			res.append(null)
+			res.append(false)
 	$environments.items = res
 
 #============================================================
