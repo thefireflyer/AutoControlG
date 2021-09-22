@@ -7,9 +7,9 @@ AutoControlG is a version of the AutoControl series made in Godot, it currently 
 
 - environment specific music
 
-- config file encryption
+- config file encryption ✔
 
-- support for multiple users
+- support for multiple users ✔
 
 - updated GUI
 
