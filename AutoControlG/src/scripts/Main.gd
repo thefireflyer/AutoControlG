@@ -1,5 +1,9 @@
 extends Control
 
+#==================TODO:!!========================
+#---switch open file for open file encrypted to enable passwords---
+#=================================================
+
 
 
 func _process(delta):
@@ -8,8 +12,8 @@ func _process(delta):
 		#_notification(NOTIFICATION_WM_QUIT_REQUEST)
 		get_tree().quit()
 	if Input.is_action_just_pressed("ui_focus_next"):
+		get_tree().change_scene("res://src/scenes/EntryPoint.tscn")
 		OS.window_minimized = true
-
 
 """
 func _notification(what):
@@ -17,7 +21,6 @@ func _notification(what):
 		if $tabs/Overview/Environments.current_environment != null:
 			$tabs/Overview/Environments.current_environment.close()
 """
-
 func _on_loggedin():
 	$SigninBox.queue_free()
 	add_child(load("res://src/scenes/MainProcess.tscn").instance())

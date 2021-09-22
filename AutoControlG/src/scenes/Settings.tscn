@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/theme/main.tres" type="Theme" id=1]
 [ext_resource path="res://src/theme/large.tres" type="DynamicFont" id=2]
@@ -9,6 +9,8 @@
 [sub_resource type="StyleBoxEmpty" id=24]
 
 [sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="StyleBoxEmpty" id=27]
 
 [sub_resource type="StyleBoxEmpty" id=26]
 
@@ -45,6 +47,7 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -35.0
 custom_styles/bg = SubResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,7 +55,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
 margin_right = 1280.0
-margin_bottom = 578.0
+margin_bottom = 612.0
 
 [node name="ImportSettingsB" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
 margin_right = 1280.0
@@ -67,10 +70,39 @@ margin_bottom = 74.0
 text = "export settings"
 flat = true
 
-[node name="TextEdit" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Panel/ScrollContainer/VBoxContainer"]
 margin_top = 78.0
 margin_right = 1280.0
-margin_bottom = 578.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Control"]
+margin_right = 1280.0
+margin_bottom = 29.0
+text = "password:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer/Control"]
+margin_left = 115.0
+margin_right = 1287.0
+margin_bottom = 29.0
+custom_styles/normal = SubResource( 27 )
+placeholder_text = "password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_top = 112.0
+margin_right = 1280.0
+margin_bottom = 612.0
 rect_min_size = Vector2( 1280, 500 )
 custom_styles/normal = SubResource( 26 )
 text = "CONFIG"
@@ -93,13 +125,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResetB" type="Button" parent="."]
+[node name="DeleteB" type="Button" parent="."]
 margin_left = 4.0
 margin_top = 678.0
 margin_right = 230.0
 margin_bottom = 713.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "Reset"
+text = "Delete"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -114,7 +146,7 @@ margin_left = -230.0
 margin_top = -44.0
 margin_right = 230.0
 margin_bottom = 44.0
-dialog_text = "Are you sure you want to reset all settings?"
+dialog_text = "Are you sure you want to permanently delete this account?"
 
 [node name="FileDialog" type="FileDialog" parent="."]
 anchor_left = 0.5
@@ -151,8 +183,9 @@ current_path = "/Users/Aidan/Documents/AutoControlG/AutoControlG/"
 
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ImportSettingsB" to="." method="_on_ImportSettingsB_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ExportSettingsB" to="." method="_on_ExportSettingsB_pressed"]
+[connection signal="text_changed" from="Panel/ScrollContainer/VBoxContainer/Control/password" to="." method="_on_password_text_changed"]
 [connection signal="pressed" from="SaveB" to="." method="_on_SaveB_pressed"]
-[connection signal="pressed" from="ResetB" to="." method="_on_ResetB_pressed"]
+[connection signal="pressed" from="DeleteB" to="." method="_on_DeleteB_pressed"]
 [connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
 [connection signal="file_selected" from="FileDialog2" to="." method="_on_FileDialog2_file_selected"]

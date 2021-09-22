@@ -3,9 +3,9 @@ extends Node
 var user_data = {
 	"username":null,
 	"password":null,
-	"public_user":true,
 	"[data]":#this is the user data that should be saved and loaded
-		{		
+		{
+		"public_user":"true",
 		"Environments" : {
 		
 			"Testing1" : {
@@ -166,8 +166,8 @@ func load_user_config(username, password):
 		print("No save file :(")
 		return {"res":false, "error":"couldn't find file"}
 		
-	#config_file.open_encrypted_with_pass("user://users/"+username, File.READ, password)
-	config_file.open("user://users/"+username, File.READ)
+	config_file.open_encrypted_with_pass("user://users/"+username, File.READ, password)
+	#config_file.open("user://users/"+username, File.READ)
 	
 	user_data["[data]"] = JSON.parse(config_file.get_as_text()).result
 	print(user_data)
@@ -182,10 +182,12 @@ func load_user_config(username, password):
 
 
 func save_user_config(username=user_data["username"], password=user_data["password"]):
-	
+	var dir = Directory.new()
+	if not dir.dir_exists("user://users/"):
+		dir.make_dir("user://users/")
 	var config_file = File.new()
-	#config_file.open_encrypted_with_pass("user://users/"+username, File.WRITE, password)
-	config_file.open("user://users/"+username, File.WRITE)
+	config_file.open_encrypted_with_pass("user://users/"+username, File.WRITE, password)
+	#config_file.open("user://users/"+username, File.WRITE)
 	
 	config_file.store_line(to_json(user_data["[data]"]))
 	
@@ -193,7 +195,7 @@ func save_user_config(username=user_data["username"], password=user_data["passwo
 	
 	
 	print("save complete")
-	if user_data["public_user"]:
+	if user_data["[data]"]["public_user"] and not (username in data["public_user_accounts"]):
 		data["public_user_accounts"].append(username)
 		save_config()
 

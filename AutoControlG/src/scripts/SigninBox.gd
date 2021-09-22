@@ -9,7 +9,7 @@ func _draw():
 	$Panel/Panel2/Accounts.items = configure_accounts(DataLibrary.data["public_user_accounts"])
 
 func _on_Accounts_item_selected(index):
-	$Panel/Panel/UserName.text = $Panel/Panel2/Accounts.items[index]
+	$Panel/Panel/UserName.text = $Panel/Panel2/Accounts.items[index*3]
 
 
 func _on_LogInB_pressed():
