@@ -5,14 +5,7 @@ var user_data = {
 	"password":null,
 	"public_user":true,
 	"[data]":#this is the user data that should be saved and loaded
-		{
-		"version" : "1.0.0",
-		
-		"General" : {
-			"password" : "",
-			"maximize" : "false",
-		},
-		
+		{		
 		"Environments" : {
 		
 			"Testing1" : {

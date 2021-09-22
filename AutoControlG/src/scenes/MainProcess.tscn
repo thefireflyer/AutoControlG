@@ -95,12 +95,8 @@ bg_color = Color( 0.0509804, 0.027451, 0.0823529, 1 )
 bg_color = Color( 0, 0, 0, 1 )
 
 [node name="MainProcess" type="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 39.0
-margin_right = -1250.0
-margin_bottom = -721.0
 
 [node name="tabs" type="TabContainer" parent="."]
 anchor_right = 1.0
@@ -285,10 +281,9 @@ __meta__ = {
 custom_styles/panel = SubResource( 23 )
 
 [node name="MusicPlayer" type="Panel" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 39.0
+margin_top = 762.0
 custom_styles/panel = SubResource( 24 )
 script = ExtResource( 5 )
 __meta__ = {
