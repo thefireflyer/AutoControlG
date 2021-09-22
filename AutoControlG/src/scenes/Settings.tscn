@@ -4,21 +4,21 @@
 [ext_resource path="res://src/theme/large.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/scripts/Settings.gd" type="Script" id=3]
 
-[sub_resource type="StyleBoxEmpty" id=23]
+[sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="StyleBoxEmpty" id=24]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxEmpty" id=25]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="StyleBoxEmpty" id=27]
+[sub_resource type="StyleBoxEmpty" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=26]
+[sub_resource type="StyleBoxEmpty" id=5]
 
 [node name="Settings" type="Panel"]
 margin_right = 1290.0
 margin_bottom = 713.0
 theme = ExtResource( 1 )
-custom_styles/panel = SubResource( 23 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -39,7 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 96.0
 margin_right = 14.0
-custom_styles/panel = SubResource( 24 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -48,7 +48,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -35.0
-custom_styles/bg = SubResource( 25 )
+custom_styles/bg = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -93,18 +93,41 @@ __meta__ = {
 margin_left = 115.0
 margin_right = 1287.0
 margin_bottom = 29.0
-custom_styles/normal = SubResource( 27 )
+custom_styles/normal = SubResource( 4 )
 placeholder_text = "password"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="Panel/ScrollContainer/VBoxContainer"]
 margin_top = 112.0
 margin_right = 1280.0
 margin_bottom = 612.0
 rect_min_size = Vector2( 1280, 500 )
-custom_styles/normal = SubResource( 26 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer/Control2"]
+anchor_bottom = 1.0
+margin_right = 640.0
+custom_styles/normal = SubResource( 5 )
+text = "USER_CONFIG"
+syntax_highlighting = true
+draw_tabs = true
+draw_spaces = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit2" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer/Control2"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -640.0
+custom_styles/normal = SubResource( 5 )
 text = "CONFIG"
 syntax_highlighting = true
 draw_tabs = true
@@ -184,6 +207,7 @@ current_path = "/Users/Aidan/Documents/AutoControlG/AutoControlG/"
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ImportSettingsB" to="." method="_on_ImportSettingsB_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ExportSettingsB" to="." method="_on_ExportSettingsB_pressed"]
 [connection signal="text_changed" from="Panel/ScrollContainer/VBoxContainer/Control/password" to="." method="_on_password_text_changed"]
+[connection signal="text_changed" from="Panel/ScrollContainer/VBoxContainer/Control2/TextEdit2" to="." method="_on_TextEdit2_text_changed"]
 [connection signal="pressed" from="SaveB" to="." method="_on_SaveB_pressed"]
 [connection signal="pressed" from="DeleteB" to="." method="_on_DeleteB_pressed"]
 [connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]

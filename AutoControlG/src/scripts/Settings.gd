@@ -3,13 +3,16 @@ extends Panel
 
 func _draw():
 	$Panel/ScrollContainer/VBoxContainer/Control/password.text = DataLibrary.user_data["password"]
-	$Panel/ScrollContainer/VBoxContainer/TextEdit.text = JSON.print(DataLibrary.user_data["[data]"], "	")#to_json(DataLibrary.data)
+	$Panel/ScrollContainer/VBoxContainer/Control2/TextEdit.text = JSON.print(DataLibrary.user_data["[data]"], "	")#to_json(DataLibrary.data)
+	$Panel/ScrollContainer/VBoxContainer/Control2/TextEdit2.text = JSON.print(DataLibrary.data, "	")#to_json(DataLibrary.data)
 
 var file_path = "user://users/"+DataLibrary.user_data["username"]
 
 func _on_SaveB_pressed(encrypted=true):
 	
-	var data = JSON.parse($Panel/ScrollContainer/VBoxContainer/TextEdit.text).result
+	DataLibrary.data = JSON.parse($Panel/ScrollContainer/VBoxContainer/Control2/TextEdit2.text).result
+
+	var data = JSON.parse($Panel/ScrollContainer/VBoxContainer/Control2/TextEdit.text).result
 	
 	var config_file = File.new()
 	if encrypted:
@@ -43,6 +46,7 @@ func _on_DeleteB_pressed():
 func _on_AcceptDialog_confirmed():
 	var dir = Directory.new()
 	dir.remove(file_path)
+	
 	print(DataLibrary.data["public_user_accounts"])
 	DataLibrary.data["public_user_accounts"].remove(DataLibrary.data["public_user_accounts"].find(DataLibrary.user_data["username"]))
 	print(DataLibrary.data["public_user_accounts"])
@@ -93,3 +97,4 @@ func _on_ExportSettingsB_pressed():
 
 func _on_password_text_changed(new_text):
 	DataLibrary.user_data["password"] = new_text
+

@@ -13,6 +13,8 @@ func _on_Accounts_item_selected(index):
 
 
 func _on_LogInB_pressed():
+	print($Panel/Panel/UserName.text)
+	print($Panel/Panel/Password.text)
 	var res = DataLibrary.load_user_config($Panel/Panel/UserName.text, $Panel/Panel/Password.text)
 	if not res["res"]:
 		if res["error"] == "couldn't find file":

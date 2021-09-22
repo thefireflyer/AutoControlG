@@ -81,79 +81,6 @@ var data = {
 	"app_data" : {	
 		"version" : "1.1.0-pre_release",
 		"maximize" : "false"
-	},
-	
-	"[deprecated]" : {
-		"version" : "1.0.0",
-		
-		"General" : {
-			"password" : "",
-			"maximize" : "false",
-		},
-		
-		"Environments" : {
-		
-			"Testing1" : {
-				"apps" : ["C:/Program Files/Blender Foundation/Blender 2.92/blender.exe", "C:/Program Files/Krita (x64)/bin/krita.exe"],
-				"locked" : "false"
-			},
-			
-			"Testing2" : {
-				"apps" : ["C:/Program Files/Krita (x64)/bin/krita.exe"],
-				"links" : ["https://itch.io/dashboard"],
-				"music" : {},
-				"locked" : "false"
-			},
-			
-			"exampleLockedEnv" : {
-					"apps" : ["C:/Program Files/PureRef/PureRef.exe"],
-					"locked" : "True"
-				},
-		},
-
-		"Links" : {
-			
-			#TODO: update to .json configurable
-			"" : ["https://github.com"],
-			
-			"gf" : ["https://itch.io"],
-			
-			"res://assets/64284477.png" : ["https://thefireflyer.herokuapp.com",
-			 "https://flyingfire.theflyingfire.repl.co",
-			 "https://thefireflyer.wixsite.com/flyingfire"],
-			
-			
-			
-		},
-		
-		
-		"Music" : {
-			
-			"Civilization 6 music" : ["https://www.youtube.com/watch?v=Z4ciJy3u7BY&list=PL9Xws8aTzwJDjicUyRgvNJhgIQrLvNQjv&index=1"],
-			"ABZU music" : ["https://www.youtube.com/watch?v=ElzV4PnXM5o"],
-			"Ori and the Will of the Wisps music" : ["https://www.youtube.com/watch?v=eCbyqm9jcBA"],
-			"Collection 1" : ["https://www.youtube.com/watch?v=hqG8u0jsk1A"],
-			"Collection 2" : ["https://www.youtube.com/watch?v=3TAUnYZpMbA"],
-			"Random 1" : ["https://www.youtube.com/watch?v=jYsSd65Y-Z8"],
-			"Random 2" : ["https://www.youtube.com/watch?v=3tRPpMQL1KE"],
-			"Random 3" : ["https://www.youtube.com/watch?v=vEP3sGEjxhY"],
-			"Random 4" : ["https://www.youtube.com/watch?v=Q5LU2s5wz9U"]
-			
-		},
-		
-		"Events" : {
-			
-			"Testing" : {
-				"links" : ["https://thefireflyer.herokuapp.com/signup/TESTING%20events%20triggered!%20AutoControlG"],
-				"time" : {"weekday":[2],"hour":[15],"minute":[00]}
-			},
-			
-			"Testing2" : {
-				"links" : ["https://thefireflyer.herokuapp.com/signup/TEST2%20events%20triggered!%20AutoControlG"],
-				"time" : {"hour":[23],"minute":[30], "day": [15]}
-			},
-			
-		}
 	}
 }
 var backup = data.duplicate()
@@ -185,6 +112,7 @@ func save_user_config(username=user_data["username"], password=user_data["passwo
 	var dir = Directory.new()
 	if not dir.dir_exists("user://users/"):
 		dir.make_dir("user://users/")
+	
 	var config_file = File.new()
 	config_file.open_encrypted_with_pass("user://users/"+username, File.WRITE, password)
 	#config_file.open("user://users/"+username, File.WRITE)
