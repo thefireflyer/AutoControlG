@@ -98,3 +98,7 @@ func _on_ExportSettingsB_pressed():
 func _on_password_text_changed(new_text):
 	DataLibrary.user_data["password"] = new_text
 
+
+
+func _on_OpenFolderB_pressed():
+	OS. shell_open(str("file://", OS.get_user_data_dir()))
