@@ -4,19 +4,19 @@
 [ext_resource path="res://src/theme/large.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/scripts/Settings.gd" type="Script" id=3]
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="StyleBoxEmpty" id=23]
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=24]
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=25]
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=26]
 
 [node name="Settings" type="Panel"]
 margin_right = 1290.0
 margin_bottom = 713.0
 theme = ExtResource( 1 )
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 23 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -37,7 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 96.0
 margin_right = 14.0
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -45,7 +45,7 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/bg = SubResource( 3 )
+custom_styles/bg = SubResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -72,7 +72,7 @@ margin_top = 78.0
 margin_right = 1280.0
 margin_bottom = 578.0
 rect_min_size = Vector2( 1280, 500 )
-custom_styles/normal = SubResource( 4 )
+custom_styles/normal = SubResource( 26 )
 text = "CONFIG"
 syntax_highlighting = true
 draw_tabs = true

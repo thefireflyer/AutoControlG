@@ -1,5 +1,10 @@
 extends Control
 
+#======TODO:!!======
+#---config encryption---
+#---multiple users---
+#===================
+
 func _ready():
 	#DataLibrary.reset_config()
 	
@@ -9,11 +14,12 @@ func _ready():
 	if not DataLibrary.load_config():
 		DataLibrary.save_config()
 	
-	if not DataLibrary.verify_config():
-		print("invalid config found, resetting")
-		DataLibrary.reset_config()
+	#if not DataLibrary.verify_config():
+	#	print("invalid config found, resetting")
+	#	DataLibrary.reset_config()
 	
-	if DataLibrary.data["General"]["maximize"] == "true":
+	#if DataLibrary.data["General"]["maximize"] == "true":
+	if DataLibrary.data["app_data"]["maximize"] == "true":
 		print("starting in maximized form")
 		maximize()
 	else:

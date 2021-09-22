@@ -1,0 +1,137 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/theme/main.tres" type="Theme" id=1]
+[ext_resource path="res://src/scripts/SigninBox.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="SigninBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -211.0
+margin_top = -211.0
+margin_right = 212.0
+margin_bottom = 203.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_right = 1.0
+margin_bottom = 44.0
+text = "Log in/Sign in"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -83.0
+margin_bottom = 35.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UserName" type="LineEdit" parent="Panel/Panel"]
+anchor_right = 1.0
+margin_bottom = 39.0
+custom_styles/normal = SubResource( 4 )
+placeholder_text = "user name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Password" type="LineEdit" parent="Panel/Panel"]
+anchor_right = 1.0
+margin_top = 39.0
+margin_bottom = 78.0
+custom_styles/normal = SubResource( 5 )
+secret = true
+placeholder_text = "password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogInB" type="Button" parent="Panel/Panel"]
+anchor_right = 1.0
+margin_top = 78.0
+margin_bottom = 113.0
+text = "log in"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 44.0
+margin_bottom = -78.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Accounts" type="ItemList" parent="Panel/Panel2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/bg = SubResource( 6 )
+items = [ "test", null, false, "test2", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+visible = true
+margin_right = 101.0
+margin_bottom = 88.0
+window_title = "invalid credentials"
+dialog_text = "wrong password or username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+visible = true
+margin_right = 225.0
+margin_bottom = 88.0
+window_title = "create account instead?"
+dialog_text = "nonexistent account, sign up instead?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Panel/Panel/LogInB" to="." method="_on_LogInB_pressed"]
+[connection signal="item_selected" from="Panel/Panel2/Accounts" to="." method="_on_Accounts_item_selected"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
