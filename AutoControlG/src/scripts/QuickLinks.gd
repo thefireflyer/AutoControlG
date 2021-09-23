@@ -32,7 +32,7 @@ func get_favicon(url):
 	print(url)
 	print(url.find("://"))
 	print(url.find("/",url.find_last("://")))
-	url = url.substr(0, url.find("/",url.find("://")+3)) + "/favicon.png"#"/fluidicon.png"
+	url = url.substr(0, url.find("/",url.find("://")+3)) + "/fluidicon.png"#"/favicon.png"#
 	print(url)
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
