@@ -97,6 +97,9 @@ bg_color = Color( 0, 0, 0, 1 )
 [node name="MainProcess" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="tabs" type="TabContainer" parent="."]
 anchor_right = 1.0
@@ -215,6 +218,9 @@ fixed_icon_size = Vector2( 128, 128 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="tabs/Overview/QuickLinks"]
+position = Vector2( -477, -604 )
 
 [node name="QuickActions" type="Panel" parent="tabs"]
 visible = false
