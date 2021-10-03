@@ -6,6 +6,9 @@ var user_data = {
 	"[data]":#this is the user data that should be saved and loaded
 		{
 		"public_user":"true",
+		
+		"encrypted_user_folders" : ["C:/dev/testing/python/potato"],
+		
 		"Environments" : {
 		
 			"Testing1" : {
@@ -84,7 +87,7 @@ var data = {
 	}
 }
 var backup = data.duplicate()
-
+var user_files_encrypted = true
 
 func load_user_config(username, password):
 	
@@ -97,7 +100,7 @@ func load_user_config(username, password):
 	#config_file.open("user://users/"+username, File.READ)
 	
 	user_data["[data]"] = JSON.parse(config_file.get_as_text()).result
-	print(user_data)
+	#print(user_data)
 	config_file.close()
 	if user_data["[data]"] == null:
 		print("wrong password or failed to decrypt/open user config file")
