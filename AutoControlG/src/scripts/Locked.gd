@@ -5,17 +5,17 @@ func _ready():
 
 
 func _on_password_text_entered(new_text):
-	if new_text == DataLibrary.data["General"]["password"]:
+	if new_text == DataLibrary.user_data["password"]:
 		DataLibrary.is_locked = false
 		name = "Settings"
 		
 
 func lock():
-	if not (DataLibrary.is_locked or DataLibrary.data["General"]["password"] == ""):
+	if not (DataLibrary.is_locked or DataLibrary.user_data["password"] == ""):
 		$LockScreen/password.text = ""
 		name = "Locked"
 		DataLibrary.is_locked = true
-		get_parent().get_node("Overview/Environments")._on_environments_item_selected(DataLibrary.data["Environments"].size())
+		get_parent().get_node("Overview/Environments")._on_environments_item_selected(DataLibrary.user_data["[data]"]["Environments"].size())
 	
 
 func _physics_process(delta):

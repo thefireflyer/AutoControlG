@@ -19,7 +19,7 @@ func _process(delta):
 
 
 func _draw():
-	local_environments = DataLibrary.data["Environments"].duplicate()
+	local_environments = DataLibrary.user_data["[data]"]["Environments"].duplicate()
 	local_environments["None"] = {"locked":"false"}
 	configure_options()
 	

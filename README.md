@@ -3,13 +3,15 @@ AutoControlG is a version of the AutoControl series made in Godot, it currently 
 
 <h2>Planned upcoming features/updates</h2>
 
-- quick links ui redesign
+- quick links ui redesign - <i style="color:red;">on hold</i> (lack of support for loading .ico files in godot)
+
+
+- config file encryption ✔ <i style="color:green;">completed</i>
+
+- support for multiple users ✔ <i style="color:green;">completed</i>
+
 
 - environment specific music
-
-- config file encryption
-
-- support for multiple users
 
 - updated GUI
 
@@ -17,7 +19,7 @@ AutoControlG is a version of the AutoControl series made in Godot, it currently 
 
 - proper setup process with GUI?
 
-- notifications for events that don't specify a trigger link?
+- notifications for events that don't specify a trigger link? - <i style="color:red;">on hold</i> (lack of support in godot)
 
 
 
